@@ -1,8 +1,11 @@
-const fs = require('fs');
-const util = require('util');
-const readFile = util.promisify(fs.readFile);
+const { graphql, buildSchema } = require('graphql');
 
-readFile(
-    'package.json',
-    'utf8'
-).then(console.log);
+const schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+const root = { hello: () => 'Hello world!' };
+
+graphql(schema, '{ hello }', root).then(console.log);
