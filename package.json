@@ -10,8 +10,14 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "graphql": "^0.13.2"
+  },
   "devDependencies": {
-    "graphql": "^0.13.2",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
     "jest": "^23.5.0",
     "nodemon": "^1.18.3"
   }
