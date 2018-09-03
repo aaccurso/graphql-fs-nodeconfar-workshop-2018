@@ -10,6 +10,6 @@ describe('promisified readdir', () => {
       'utf8',
     );
 
-    expect(files).toEqual(['fileA.txt', 'fileB.txt']);
+    expect(files).toEqual(['dirA', 'fileA.txt', 'fileB.txt']);
   });
 });
