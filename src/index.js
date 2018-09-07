@@ -11,16 +11,28 @@ const statFn = util.promisify(fs.stat);
 const schema = buildSchema(`
   type Query {
     hello(name: String): String!
-    readDir(dir: String): [Stats]
-    writeFile(file: String!, data: String!): String!
+    readDir(dir: String): [Stat!]!
   }
-  type Stats {
+  type Mutation {
+    writeFile(name: String!, content: String!): Stat!
+  }
+  type Stat {
     name: String!
     type: String!
   }
 `);
 
+class Stat {
+  constructor({ name, type }) {
+    this.name = name;
+    this.type = type;
+  }
+}
+
 const mockDirPath = '__tests__/mockDir';
+
+const FILE_TYPE = 'file';
+const DIR_TYPE = 'dir';
 
 // The root provides a resolver function for each API endpoint
 const root = {
@@ -31,20 +43,23 @@ const root = {
 
     const stats = await Promise.all(files.map(async (name) => {
       const stat = await statFn(`${path}/${name}`);
-      const type = stat.isFile() ? 'file' : 'dir';
+      const type = stat.isFile() ? FILE_TYPE : DIR_TYPE;
 
-      return {
+      return new Stat({
         name,
         type,
-      };
+      });
     }));
 
     return stats;
   },
-  writeFile: async ({ file, data }) => {
-    await writeFile(`${mockDirPath}/${file}`, data);
+  writeFile: async ({ name, content }) => {
+    await writeFile(`${mockDirPath}/${name}`, content);
 
-    return `File ${file} created.`;
+    return new Stat({
+      name,
+      type: FILE_TYPE,
+    });
   },
 };
 
