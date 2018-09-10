@@ -16,20 +16,26 @@ const typeDefs = gql`
     hello(name: String): String!
     files(dir: String): [File!]!
     dirs(dir: String): [Dir!]!
+    ls(dir: String): [Stat!]!
   }
   type Mutation {
     writeFile(name: String!, content: String!): File!
   }
-  type File {
+  interface Stat {
     name: String!
     type: String!
   }
-  type Dir {
+  type File implements Stat {
+    name: String!
+    type: String!
+  }
+  type Dir implements Stat {
     name: String!
     type: String!
     parent: String!
-    files(dir: String): [File!]!
-    dirs(dir: String): [Dir!]!
+    files: [File!]!
+    dirs: [Dir!]!
+    ls: [Stat!]!
   }
 `;
 
@@ -46,32 +52,45 @@ const readDir = async ({ dir, parent, typeFilter }) => {
       : { name, parent: `${parentPath}${dir || ''}`, type: DIR_TYPE };
   }));
 
-  return stats.filter(({ type }) => type === typeFilter);
+  return typeFilter
+    ? stats.filter(({ type }) => type === typeFilter)
+    : stats;
 };
 
 const files = (obj, args) => readDir({ ...obj, ...args, typeFilter: FILE_TYPE });
 
 const dirs = (obj, args) => readDir({ ...obj, ...args, typeFilter: DIR_TYPE });
 
+const ls = (obj, args) => readDir({ ...obj, ...args });
+
 // The root provides a resolver function for each API endpoint
 const resolvers = {
   Query: {
-    hello: (obj, { name }) => `Hello ${name || 'World'}!`,
+    hello(obj, { name }) {
+      return `Hello ${name || 'World'}!`;
+    },
     files,
     dirs,
+    ls,
   },
   Dir: {
     files,
     dirs,
+    ls,
   },
   Mutation: {
-    writeFile: async (obj, { name, content }) => {
+    async writeFile(obj, { name, content }) {
       await fsWriteFile(`${ROOT_PATH}/${name}`, content);
 
       return {
         name,
         type: FILE_TYPE,
       };
+    },
+  },
+  Stat: {
+    __resolveType(obj) {
+      return obj.type;
     },
   },
 };
