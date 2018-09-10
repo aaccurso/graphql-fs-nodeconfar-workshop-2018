@@ -1,5 +1,4 @@
-const repl = require('repl');
-const { graphql, buildSchema } = require('graphql');
+const { ApolloServer, gql } = require('apollo-server');
 const fs = require('fs');
 const util = require('util');
 
@@ -12,7 +11,7 @@ const FILE_TYPE = 'File';
 const DIR_TYPE = 'Dir';
 
 // Construct a schema, using GraphQL schema language
-const schema = buildSchema(`
+const typeDefs = gql`
   type Query {
     hello(name: String): String!
     files(dir: String): [File!]!
@@ -32,80 +31,59 @@ const schema = buildSchema(`
     files(dir: String): [File!]!
     dirs(dir: String): [Dir!]!
   }
-`);
+`;
 
-let readDir;
-
-class File {
-  constructor({ name }) {
-    this.name = name;
-    this.type = FILE_TYPE;
-  }
-}
-
-class Dir {
-  constructor({ name, parent }) {
-    this.name = name;
-    this.parent = parent;
-    this.type = DIR_TYPE;
-  }
-
-  files() {
-    return readDir({
-      dir: this.name,
-      parent: this.parent,
-      typeFilter: FILE_TYPE,
-    });
-  }
-
-  dirs() {
-    return readDir({
-      dir: this.name,
-      parent: this.parent,
-      typeFilter: DIR_TYPE,
-    });
-  }
-}
-
-readDir = async ({ dir, parent, typeFilter }) => {
+const readDir = async ({ dir, parent, typeFilter }) => {
   const parentPath = parent ? `${parent}/` : '';
   const path = `${ROOT_PATH}/${parentPath}${dir || ''}`;
   const files = await fsReadDir(path);
 
   const stats = await Promise.all(files.map(async (name) => {
     const stat = await fsStat(`${path}/${name}`);
+
     return stat.isFile()
-      ? new File({ name })
-      : new Dir({ name, parent: `${parentPath}${dir || ''}` });
+      ? { name, type: FILE_TYPE }
+      : { name, parent: `${parentPath}${dir || ''}`, type: DIR_TYPE };
   }));
 
   return stats.filter(({ type }) => type === typeFilter);
 };
 
-// The root provides a resolver function for each API endpoint
-const root = {
-  hello: ({ name }) => `Hello ${name || 'World'}`,
-  files: args => readDir({ ...args, typeFilter: FILE_TYPE }),
-  dirs: args => readDir({ ...args, typeFilter: DIR_TYPE }),
-  writeFile: async ({ name, content }) => {
-    await fsWriteFile(`${ROOT_PATH}/${name}`, content);
+const files = (obj, args) => readDir({ ...obj, ...args, typeFilter: FILE_TYPE });
 
-    return new File({
-      name,
-    });
+const dirs = (obj, args) => readDir({ ...obj, ...args, typeFilter: DIR_TYPE });
+
+// The root provides a resolver function for each API endpoint
+const resolvers = {
+  Query: {
+    hello: (obj, { name }) => `Hello ${name || 'World'}!`,
+    files,
+    dirs,
+  },
+  Dir: {
+    files,
+    dirs,
+  },
+  Mutation: {
+    writeFile: async (obj, { name, content }) => {
+      await fsWriteFile(`${ROOT_PATH}/${name}`, content);
+
+      return {
+        name,
+        type: FILE_TYPE,
+      };
+    },
   },
 };
 
-// Eval REPL query input and print out the response
-const graphqlEval = (query, context, filename, callback) => {
-  graphql(schema, query, root).then(response => callback(null, response));
-};
+// In the most basic sense, the ApolloServer can be started
+// by passing type definitions (typeDefs) and the resolvers
+// responsible for fetching the data for those types.
+const server = new ApolloServer({ typeDefs, resolvers });
 
-// Custom REPL writer
-const writer = output => util.inspect(output, {
-  depth: null,
-  colors: true,
-  compact: false,
+// This `listen` method launches a web-server.  Existing apps
+// can utilize middleware options, which we'll discuss later.
+server.listen().then(({ url }) => {
+  // eslint-disable-next-line no-console
+  console.log(`🚀  Server ready at ${url}`);
 });
-
-repl.start({ prompt: '> ', eval: graphqlEval, writer });
