@@ -5,7 +5,7 @@ https://graphql.org/graphql-js/
 ## Queries
 
 ```gql
-{
+query filesAndDirs {
   files {
     name
     type
@@ -22,11 +22,27 @@ https://graphql.org/graphql-js/
 ```
 
 ```gql
-{
+query ls {
   ls {
     name
     type
     ... on Dir {
+      ls {
+        name
+        type
+      }
+    }
+  }
+}
+```
+
+```qgl
+query lsDirA {
+  ls(dir:"dirA") {
+    name
+    type
+    ... on Dir {
+      parent
       ls {
         name
         type

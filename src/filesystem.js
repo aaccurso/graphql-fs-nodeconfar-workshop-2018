@@ -17,9 +17,16 @@ const readDir = async ({ dir, parent, typeFilter }) => {
   const stats = await Promise.all(files.map(async (name) => {
     const stat = await fsStat(`${path}/${name}`);
 
-    return stat.isFile()
-      ? { name, type: FILE_TYPE }
-      : { name, parent: `${parentPath}${dir || ''}`, type: DIR_TYPE };
+    if (stat.isFile()) {
+      return { name, type: FILE_TYPE };
+    }
+
+    return {
+      name,
+      dir: name,
+      parent: `${parentPath}${dir || ''}`,
+      type: DIR_TYPE,
+    };
   }));
 
   return typeFilter
@@ -36,11 +43,11 @@ const writeFile = async (obj, { name, content }) => {
   };
 };
 
-const files = (obj, args) => readDir({ ...obj, ...args, typeFilter: FILE_TYPE });
+const files = (obj, args) => readDir({ ...args, ...obj, typeFilter: FILE_TYPE });
 
-const dirs = (obj, args) => readDir({ ...obj, ...args, typeFilter: DIR_TYPE });
+const dirs = (obj, args) => readDir({ ...args, ...obj, typeFilter: DIR_TYPE });
 
-const ls = (obj, args) => readDir({ ...obj, ...args });
+const ls = (obj, args) => readDir({ ...args, ...obj });
 
 module.exports = {
   files,
