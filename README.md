@@ -17,6 +17,10 @@ query filesAndDirs {
       name
       type
     }
+    dirs {
+      name
+      type
+    }
   }
 }
 ```
@@ -38,7 +42,7 @@ query ls {
 
 ```qgl
 query lsDirA {
-  ls(dir:"dirA") {
+  ls(dir: "dirA") {
     name
     type
     ... on Dir {

@@ -5,7 +5,7 @@ const fsReadDir = util.promisify(fs.readdir);
 const fsWriteFile = util.promisify(fs.writeFile);
 const fsStat = util.promisify(fs.stat);
 
-const ROOT_PATH = '__tests__/mockDir';
+const ROOT_PATH = `${__dirname}/__tests__/mockDir`;
 const FILE_TYPE = 'File';
 const DIR_TYPE = 'Dir';
 

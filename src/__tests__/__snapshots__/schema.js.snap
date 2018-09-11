@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`graphql-fs schema should execute writeFile mutation 1`] = `
+Object {
+  "data": Object {
+    "writeFile": Object {
+      "name": "test.txt",
+    },
+  },
+}
+`;
+
+exports[`graphql-fs schema should ls dirA 1`] = `
+Object {
+  "data": Object {
+    "ls": Array [
+      Object {
+        "name": "fileA.txt",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;
+
+exports[`graphql-fs schema should ls root dir 1`] = `
+Object {
+  "data": Object {
+    "ls": Array [
+      Object {
+        "ls": Array [
+          Object {
+            "name": "fileA.txt",
+            "type": "File",
+          },
+        ],
+        "name": "dirA",
+        "type": "Dir",
+      },
+      Object {
+        "name": "fileA.txt",
+        "type": "File",
+      },
+      Object {
+        "name": "fileB.txt",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;
+
+exports[`graphql-fs schema should query files and dirs 1`] = `
+Object {
+  "data": Object {
+    "dirs": Array [
+      Object {
+        "dirs": Array [],
+        "files": Array [
+          Object {
+            "name": "fileA.txt",
+            "type": "File",
+          },
+        ],
+        "name": "dirA",
+        "type": "Dir",
+      },
+    ],
+    "files": Array [
+      Object {
+        "name": "fileA.txt",
+        "type": "File",
+      },
+      Object {
+        "name": "fileB.txt",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;
