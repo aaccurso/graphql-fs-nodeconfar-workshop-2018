@@ -2,10 +2,29 @@
 
 Queremos listar los nombres de los archivos en `ROOT_PATH`.
 
+Query:
+
 ```gql
 query listFiles {
   files {
     name
+  }
+}
+```
+
+Result:
+
+```json
+{
+  "data": {
+    "files": [
+      {
+        "name": "fileA.txt"
+      },
+      {
+        "name": "fileB.txt"
+      }
+    ]
   }
 }
 ```
@@ -46,7 +65,7 @@ TODO: hablar de resolvers
 {
   Query: {
     files: (obj, args) {
-      // TODO: read ROOT_PATH dir
+      // TODO: implement read ROOT_PATH dir
       return [];
     }
   }
