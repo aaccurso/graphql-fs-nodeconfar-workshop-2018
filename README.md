@@ -2,22 +2,22 @@
 
 https://graphql.org/graphql-js/
 
-## Queries
-
-### Step 1
+## Step 1
 
 ```gql
-query files {
+query listFiles {
   files {
     name
   }
 }
 ```
 
-### Step 2
+[Doc](/STEP-1.md)
+
+## Step 2
 
 ```gql
-query filesAndDirs {
+query listFilesAndDirs {
   files {
     name
     type
@@ -37,10 +37,10 @@ query filesAndDirs {
 }
 ```
 
-### Step 3
+## Step 3
 
 ```gql
-query ls {
+query list {
   ls {
     name
     type
@@ -54,7 +54,7 @@ query ls {
 }
 ```
 
-### Step 4
+## Step 4
 
 ```qgl
 query lsDirA {
@@ -72,7 +72,7 @@ query lsDirA {
 }
 ```
 
-### Step 5
+## Step 5
 
 ```gql
 mutation writeFile($name: String!, $content: String!) {
