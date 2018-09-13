@@ -4,6 +4,18 @@ https://graphql.org/graphql-js/
 
 ## Queries
 
+### Step 1
+
+```gql
+query files {
+  files {
+    name
+  }
+}
+```
+
+### Step 2
+
 ```gql
 query filesAndDirs {
   files {
@@ -25,6 +37,8 @@ query filesAndDirs {
 }
 ```
 
+### Step 3
+
 ```gql
 query ls {
   ls {
@@ -39,6 +53,8 @@ query ls {
   }
 }
 ```
+
+### Step 4
 
 ```qgl
 query lsDirA {
@@ -56,7 +72,7 @@ query lsDirA {
 }
 ```
 
-## Mutations
+### Step 5
 
 ```gql
 mutation writeFile($name: String!, $content: String!) {
