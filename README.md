@@ -1,6 +1,9 @@
-# Graphql FileSystem
+# GraphQL FileSystem
 
-https://graphql.org/graphql-js/
+## Intro
+
+[INTRO](/INTRO.md)
+[graphql-js](https://graphql.org/graphql-js/)
 
 ## Step 1
 
@@ -12,7 +15,7 @@ query listFiles {
 }
 ```
 
-[Doc](/STEP-1.md)
+[STEP-1](/STEP-1.md)
 
 ## Step 2
 
@@ -37,6 +40,8 @@ query listFilesAndDirs {
 }
 ```
 
+[STEP-2](/STEP-2.md)
+
 ## Step 3
 
 ```gql
@@ -53,6 +58,8 @@ query list {
   }
 }
 ```
+
+[STEP-3](/STEP-3.md)
 
 ## Step 4
 
@@ -72,6 +79,8 @@ query lsDirA {
 }
 ```
 
+[STEP-4](/STEP-4.md)
+
 ## Step 5
 
 ```gql
@@ -81,3 +90,5 @@ mutation writeFile($name: String!, $content: String!) {
   }
 }
 ```
+
+[STEP-5](/STEP-5.md)
