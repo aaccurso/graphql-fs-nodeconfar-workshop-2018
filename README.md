@@ -17,11 +17,7 @@ query listFiles {
 ## [Step 2](/STEP-2.md)
 
 ```gql
-query listFilesAndDirs {
-  files {
-    name
-    type
-  }
+query listDirs {
   dirs {
     name
     type
@@ -56,8 +52,8 @@ query list {
 
 ## [Step 4](/STEP-4.md)
 
-```qgl
-query lsDirA {
+```gql
+query listDirA {
   ls(dir: "dirA") {
     name
     type
