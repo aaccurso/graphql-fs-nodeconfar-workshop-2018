@@ -12,6 +12,15 @@ mutation writeFile($name: String!, $content: String!) {
 }
 ```
 
+Query variables:
+
+```json
+{
+  "name": "test.txt",
+  "content": "test"
+}
+```
+
 Resultado:
 
 ```json
