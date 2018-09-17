@@ -29,7 +29,7 @@ Result:
 }
 ```
 
-## Crear un tipo File
+## Crear tipo __File__
 
 Los componentes más básicos de un _GraphQL schema_ son los tipos, que representan un objeto que
 se puede fetchear de nuestro servicio, y los _fields_ que tiene.
@@ -44,7 +44,7 @@ type Field {
 
 > __String!__ indica que GraphQL garantiza que el objeto no puede devolver _null_ para ese field.
 
-## Agregar un field _files_ al tipo Query
+## Agregar un field _files_ al tipo __Query__
 
 TODO: hablar del tipo Query
 
