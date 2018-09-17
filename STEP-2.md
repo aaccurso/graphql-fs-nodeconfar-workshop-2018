@@ -1,6 +1,6 @@
 # Step 2
 
-Queremos listar los nombres de los directorios y archivos en `ROOT_PATH`.
+Queremos listar los nombres de los directorios en `ROOT_PATH`.
 Luego queremos poder listar archivos y directorios recursivamente dentro de otros directorios.
 
 __TODO__: pensar si extraer el _listado recursivo_ en otro step.
@@ -48,16 +48,32 @@ Resultado:
 
 ## Crear tipo __Dir__
 
-TODO: completar
+__TODO__: completar
 
 ## Agregar field _dirs_ al tipo __Query__
 
-TODO: completar
+__TODO__: completar
 
-## Resolver el field _dirs_
+## Resolver field _dirs_ para tipo __Query__
 
-TODO: completar
+__TODO__: completar
+
+
+En este momento se puede realizar la siguiente query:
+
+```gql
+query listDirs {
+  dirs {
+    name
+    type
+  }
+}
+```
+
+## Agregar fields _files_ y _dirs_ al tipo __Dir__
+
+__TODO__: completar
 
 ## Resolver _files_ y _dirs_ para tipo __Dir__
 
-TODO: completar
+__TODO__: completar
