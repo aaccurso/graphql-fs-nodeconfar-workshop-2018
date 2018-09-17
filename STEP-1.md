@@ -44,9 +44,9 @@ type Field {
 
 > __String!__ indica que GraphQL garantiza que el objeto no puede devolver _null_ para ese field.
 
-## Agregar un field _files_ al tipo __Query__
+## Agregar field _files_ al tipo __Query__
 
-TODO: hablar del tipo Query
+__TODO__: hablar del tipo Query
 
 ```qgl
 type Query {
@@ -57,9 +57,9 @@ type Query {
 > __[File!]!__ representa un array de objetos de tipo File no _null_ y que siempre va a devolver un array,
 aunque sea vacío `[]`.
 
-## Resolver el field _files_
+## Resolver field _files_
 
-TODO: hablar de resolvers
+__TODO__: hablar de resolvers
 
 ```js
 {
