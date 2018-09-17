@@ -10,12 +10,42 @@ Object {
 }
 `;
 
-exports[`graphql-fs schema should ls dirA 1`] = `
+exports[`graphql-fs schema should ls Mother 1`] = `
 Object {
   "data": Object {
     "ls": Array [
       Object {
-        "name": "fileA.txt",
+        "ls": Array [
+          Object {
+            "name": "Clancy_Bouvier.jpg",
+            "type": "File",
+          },
+        ],
+        "name": "Father",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Marge_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Jacqueline_Bouvier.gif",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Patty_Bouvier.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Selma_Bouvier.png",
         "type": "File",
       },
     ],
@@ -28,22 +58,60 @@ Object {
   "data": Object {
     "ls": Array [
       Object {
+        "name": "Bart_Simpson.png",
+        "type": "File",
+      },
+      Object {
         "ls": Array [
           Object {
-            "name": "fileA.txt",
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Homer_Simpson.png",
             "type": "File",
           },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
         ],
-        "name": "dirA",
+        "name": "Father",
         "type": "Dir",
       },
       Object {
-        "name": "fileA.txt",
+        "name": "Lisa_Simpson.png",
         "type": "File",
       },
       Object {
-        "name": "fileB.txt",
+        "name": "Maggie_Simpson.png",
         "type": "File",
+      },
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Marge_Simpson.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Patty_Bouvier.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Selma_Bouvier.png",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
+        "type": "Dir",
       },
     ],
   },
@@ -55,24 +123,65 @@ Object {
   "data": Object {
     "dirs": Array [
       Object {
-        "dirs": Array [],
+        "dirs": Array [
+          Object {
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
+        ],
         "files": Array [
           Object {
-            "name": "fileA.txt",
+            "name": "Homer_Simpson.png",
             "type": "File",
           },
         ],
-        "name": "dirA",
+        "name": "Father",
+        "type": "Dir",
+      },
+      Object {
+        "dirs": Array [
+          Object {
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
+        ],
+        "files": Array [
+          Object {
+            "name": "Marge_Simpson.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Patty_Bouvier.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Selma_Bouvier.png",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
         "type": "Dir",
       },
     ],
     "files": Array [
       Object {
-        "name": "fileA.txt",
+        "name": "Bart_Simpson.png",
         "type": "File",
       },
       Object {
-        "name": "fileB.txt",
+        "name": "Lisa_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Maggie_Simpson.png",
         "type": "File",
       },
     ],
