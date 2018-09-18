@@ -35,7 +35,7 @@ Los componentes más básicos de un _GraphQL schema_ son los tipos, que represen
 se puede fetchear de nuestro servicio, y los _fields_ que tiene.
 
 ```gql
-type Field {
+type File {
   name: String!
 }
 ```
@@ -48,7 +48,7 @@ type Field {
 
 __TODO__: hablar del tipo Query
 
-```qgl
+```gql
 type Query {
   files: [File!]!
 }
