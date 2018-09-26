@@ -1,5 +1,7 @@
 # GraphQL FileSystem
 
+[![CircleCI](https://circleci.com/gh/aaccurso/graphql-fs-nodeconfar-workshop-2018.svg?style=svg&circle-token=d815f072dd7b04e0425b8ff286ac15c3153b10f0)](https://circleci.com/gh/aaccurso/graphql-fs-nodeconfar-workshop-2018)
+
 ## [Introduction](/INTRO.md)
 
 [graphql-js](https://graphql.org/graphql-js/)
