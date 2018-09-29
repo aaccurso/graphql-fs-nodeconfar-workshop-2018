@@ -6,7 +6,11 @@
 
 [graphql-js](https://graphql.org/graphql-js/)
 
-## [Step 1](/STEP-1.md)
+## [Step 0](/steps/STEP-0.md)
+
+Setup del proyecto y enunciado del ejercicio que vamos a resolver en el workshop.
+
+## [Step 1](/steps/STEP-1.md)
 
 ```gql
 query listFiles {
@@ -16,7 +20,18 @@ query listFiles {
 }
 ```
 
-## [Step 2](/STEP-2.md)
+## [Step 2](/steps/STEP-2.md)
+
+```gql
+query listDirs {
+  dirs {
+    name
+    type
+  }
+}
+```
+
+## [Step 3](/steps/STEP-3.md)
 
 ```gql
 query listDirs {
@@ -35,7 +50,18 @@ query listDirs {
 }
 ```
 
-## [Step 3](/STEP-3.md)
+## [Step 4](/steps/STEP-4.md)
+
+```gql
+query list {
+  ls {
+    name
+    type
+  }
+}
+```
+
+## [Step 5](/steps/STEP-5.md)
 
 ```gql
 query list {
@@ -52,25 +78,26 @@ query list {
 }
 ```
 
-## [Step 4](/STEP-4.md)
+## [Step 6](/steps/STEP-6.md)
 
 ```gql
-query listDirA {
-  ls(dir: "dirA") {
-    name
-    type
+query listDir {
+  ls(dir: "Mother") {
+    ...stats
     ... on Dir {
       parent
-      ls {
-        name
-        type
-      }
+      ...stats
     }
   }
 }
+
+fragment stats on Stat {
+  name
+  type
+}
 ```
 
-## [Step 5](/STEP-5.md)
+## [Step 7](/steps/STEP-7.md)
 
 ```gql
 mutation writeFile($name: String!, $content: String!) {

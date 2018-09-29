@@ -1,4 +1,4 @@
-# Step 4
+# Step 6
 
 Queremos listar un directorio específico dentro de nuestro `ROOT_PATH`.
 

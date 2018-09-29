@@ -5,14 +5,7 @@ Object {
   "data": Object {
     "ls": Array [
       Object {
-        "ls": Array [
-          Object {
-            "name": "Clancy_Bouvier.jpg",
-            "type": "File",
-          },
-        ],
         "name": "Father",
-        "parent": "Mother",
         "type": "Dir",
       },
       Object {
@@ -20,14 +13,7 @@ Object {
         "type": "File",
       },
       Object {
-        "ls": Array [
-          Object {
-            "name": "Jacqueline_Bouvier.gif",
-            "type": "File",
-          },
-        ],
         "name": "Mother",
-        "parent": "Mother",
         "type": "Dir",
       },
       Object {
@@ -48,12 +34,6 @@ Object {
   "data": Object {
     "ls": Array [
       Object {
-        "ls": Array [
-          Object {
-            "name": "Clancy_Bouvier.jpg",
-            "type": "File",
-          },
-        ],
         "name": "Father",
         "parent": "Mother",
         "type": "Dir",
@@ -63,12 +43,6 @@ Object {
         "type": "File",
       },
       Object {
-        "ls": Array [
-          Object {
-            "name": "Jacqueline_Bouvier.gif",
-            "type": "File",
-          },
-        ],
         "name": "Mother",
         "parent": "Mother",
         "type": "Dir",

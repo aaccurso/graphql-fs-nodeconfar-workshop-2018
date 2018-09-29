@@ -1,4 +1,4 @@
-# Step 5
+# Step 7
 
 Queremos crear un archivo y escribir contenido en el mismo.
 

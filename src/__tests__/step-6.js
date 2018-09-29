@@ -8,13 +8,6 @@ describe('step 6', () => {
         ls(dir: "Mother") {
           name
           type
-          ... on Dir {
-            parent
-            ls {
-              name
-              type
-            }
-          }
         }
       }
     `;
@@ -24,18 +17,19 @@ describe('step 6', () => {
 
   it('should query list dir recursively', async () => {
     const source = `
-      query lsDir {
+      query listDir {
         ls(dir: "Mother") {
-          name
-          type
+          ...stats
           ... on Dir {
             parent
-            ls {
-              name
-              type
-            }
+            ...stats
           }
         }
+      }
+      
+      fragment stats on Stat {
+        name
+        type
       }
     `;
 

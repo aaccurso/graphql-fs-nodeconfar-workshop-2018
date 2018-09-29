@@ -1,4 +1,4 @@
-# Step 3
+# Step 4
 
 Queremos generar un listado de archivos y directorios a partir de un único comando.
 Luego para directorios queremos poder listar su contenido de manera recursiva.
