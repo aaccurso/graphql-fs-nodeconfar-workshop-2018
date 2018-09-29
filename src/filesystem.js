@@ -1,11 +1,16 @@
 const fs = require('fs');
 const util = require('util');
 
-const fsReadDir = util.promisify(fs.readdir);
+const fsReadDir = async (args) => {
+  const files = await util.promisify(fs.readdir)(args);
+
+  // Filter files that are not hidden by the OS such as .DS_Store
+  return files.filter(name => !/^\./.test(name));
+};
 const fsWriteFile = util.promisify(fs.writeFile);
 const fsStat = util.promisify(fs.stat);
 
-const ROOT_PATH = `${__dirname}/__tests__/mockDir`;
+const ROOT_PATH = `${__dirname}/__tests__/The_Simpsons`;
 const FILE_TYPE = 'File';
 const DIR_TYPE = 'Dir';
 
@@ -50,6 +55,7 @@ const dirs = (obj, args) => readDir({ ...args, ...obj, typeFilter: DIR_TYPE });
 const ls = (obj, args) => readDir({ ...args, ...obj });
 
 module.exports = {
+  ROOT_PATH,
   files,
   dirs,
   ls,

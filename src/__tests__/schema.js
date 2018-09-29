@@ -1,6 +1,7 @@
 const { graphql } = require('graphql');
 const fs = require('fs');
 const util = require('util');
+const { ROOT_PATH } = require('../filesystem');
 const schema = require('../schema');
 
 const fsUnlink = util.promisify(fs.unlink);
@@ -50,10 +51,10 @@ describe('graphql-fs schema', () => {
     expect(await graphql({ schema, source })).toMatchSnapshot();
   });
 
-  it('should ls dirA', async () => {
+  it('should ls Mother', async () => {
     const source = `
     query lsDirA {
-      ls(dir: "dirA") {
+      ls(dir: "Mother") {
         name
         type
         ... on Dir {
@@ -84,6 +85,6 @@ describe('graphql-fs schema', () => {
     };
 
     expect(await graphql({ schema, source, variableValues })).toMatchSnapshot();
-    expect(await fsUnlink(`${__dirname}/mockDir/test.txt`)).toBeUndefined();
+    expect(await fsUnlink(`${ROOT_PATH}/test.txt`)).toBeUndefined();
   });
 });
