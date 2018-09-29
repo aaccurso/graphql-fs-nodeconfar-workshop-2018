@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 4 should query list 1`] = `
+Object {
+  "data": Object {
+    "ls": Array [
+      Object {
+        "name": "Bart_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Father",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Lisa_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Maggie_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Mother",
+        "type": "Dir",
+      },
+    ],
+  },
+}
+`;

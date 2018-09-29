@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 6 should query list dir 1`] = `
+Object {
+  "data": Object {
+    "ls": Array [
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Clancy_Bouvier.jpg",
+            "type": "File",
+          },
+        ],
+        "name": "Father",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Marge_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Jacqueline_Bouvier.gif",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Patty_Bouvier.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Selma_Bouvier.png",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;
+
+exports[`step 6 should query list dir recursively 1`] = `
+Object {
+  "data": Object {
+    "ls": Array [
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Clancy_Bouvier.jpg",
+            "type": "File",
+          },
+        ],
+        "name": "Father",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Marge_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "ls": Array [
+          Object {
+            "name": "Jacqueline_Bouvier.gif",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
+        "parent": "Mother",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Patty_Bouvier.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Selma_Bouvier.png",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;

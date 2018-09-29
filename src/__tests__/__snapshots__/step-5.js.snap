@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 5 should query list on Dir 1`] = `
+Object {
+  "errors": Array [
+    [GraphQLError: Syntax Error: Unexpected Name "ls"],
+  ],
+}
+`;
+
+exports[`step 5 should query list recursively 1`] = `
+Object {
+  "errors": Array [
+    [GraphQLError: Syntax Error: Unexpected Name "ls"],
+  ],
+}
+`;

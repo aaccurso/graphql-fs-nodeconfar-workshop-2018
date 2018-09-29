@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 7 should execute writeFile mutation 1`] = `
+Object {
+  "data": Object {
+    "writeFile": Object {
+      "name": "test.txt",
+    },
+  },
+}
+`;

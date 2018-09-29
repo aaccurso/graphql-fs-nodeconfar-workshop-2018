@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 3 should query files and dirs recursively 1`] = `
+Object {
+  "data": Object {
+    "dirs": Array [
+      Object {
+        "dirs": Array [
+          Object {
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
+        ],
+        "files": Array [
+          Object {
+            "name": "Homer_Simpson.png",
+            "type": "File",
+          },
+        ],
+        "name": "Father",
+        "type": "Dir",
+      },
+      Object {
+        "dirs": Array [
+          Object {
+            "name": "Father",
+            "type": "Dir",
+          },
+          Object {
+            "name": "Mother",
+            "type": "Dir",
+          },
+        ],
+        "files": Array [
+          Object {
+            "name": "Marge_Simpson.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Patty_Bouvier.png",
+            "type": "File",
+          },
+          Object {
+            "name": "Selma_Bouvier.png",
+            "type": "File",
+          },
+        ],
+        "name": "Mother",
+        "type": "Dir",
+      },
+    ],
+  },
+}
+`;

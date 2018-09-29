@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 1 should query files 1`] = `
+Object {
+  "data": Object {
+    "files": Array [
+      Object {
+        "name": "Bart_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Lisa_Simpson.png",
+        "type": "File",
+      },
+      Object {
+        "name": "Maggie_Simpson.png",
+        "type": "File",
+      },
+    ],
+  },
+}
+`;
