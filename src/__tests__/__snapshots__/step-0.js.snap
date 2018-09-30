@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`step 0 should query hello 1`] = `
+Object {
+  "data": Object {
+    "hello": "Hello World!",
+  },
+}
+`;
+
+exports[`step 0 should query hello nodeconf 1`] = `
+Object {
+  "data": Object {
+    "hello": "Hello NodeConf!",
+  },
+}
+`;
