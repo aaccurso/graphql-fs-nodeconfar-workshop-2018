@@ -8,7 +8,7 @@ En primer lugar debemos usar el lenguaje provisto por GraphQL para definir el es
 
 ![Grafo de tipos](./img/graph.png)
 
-Nuestro esquema entonces estaría compuesto en principio por tres tipos: uno para la Playlistst, otro para el Track y finalmente otro para el Artist. Cada uno de estos tipos asimismo está compuesto por ciertos campos (fields) que pueden ser escalares o no escalares. Los campos escalares permiten representar propiedades de un tipo como el id o el nombre, mientras que los campos no escalares representan las relaciones con otros nodos dentro del grafo. Por ejemplo, una posible definición de un tipo sería la siguiente:
+Nuestro esquema entonces estaría compuesto en principio por tres tipos: uno para la Playlist, otro para el Track y finalmente otro para el Artist. Cada uno de estos tipos asimismo está compuesto por ciertos campos (fields) que pueden ser escalares o no escalares. Los campos escalares permiten representar propiedades de un tipo como el id o el nombre, mientras que los campos no escalares representan las relaciones con otros nodos dentro del grafo. Por ejemplo, una posible definición de un tipo sería la siguiente:
 
 ```graphql
 type Playlist {
@@ -141,8 +141,15 @@ const resolvers = {
 };
 ```
 
-__TODO__ Add section about mutation
+## Material adicional
 
-__TODO__: explicar el ejercicio que vamos a realizar y la modalidad de steps
+Caso de uso: GraphQL en Medallia https://www.youtube.com/watch?v=OkJLTOOZ9vM
 
-Se pueden validar los pasos corriendo los tests.
+GraphQL home page: https://graphql.org/
+
+GraphQL tools: https://www.apollographql.com/docs/graphql-tools/
+
+ApolloJS home page (cliente de GraphQL): https://www.apollographql.com/
+
+GraphQL concepts: https://dev-blog.apollodata.com/the-concepts-of-graphql-bc68bd819be3
+
