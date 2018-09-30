@@ -1,13 +1,14 @@
 const { graphql } = require('graphql');
-const fs = require('fs');
-const util = require('util');
-const { ROOT_PATH } = require('../filesystem');
+const { writeFile } = require('../filesystem');
 const schema = require('../schema');
 
-const fsUnlink = util.promisify(fs.unlink);
+jest.mock('../filesystem');
 
 describe('step 7', () => {
   it('should execute writeFile mutation', async () => {
+    writeFile.mockImplementation(() => Promise.resolve({
+      name: 'test.txt',
+    }));
     const source = `
     mutation writeFile($name: String!, $content: String!) {
       writeFile(name: $name, content: $content) {
@@ -21,6 +22,11 @@ describe('step 7', () => {
     };
 
     expect(await graphql({ schema, source, variableValues })).toMatchSnapshot();
-    expect(await fsUnlink(`${ROOT_PATH}/test.txt`)).toBeUndefined();
+    expect(writeFile).toBeCalledWith(
+      undefined,
+      { content: 'test', name: 'test.txt' },
+      undefined,
+      expect.anything(),
+    );
   });
 });
