@@ -4,7 +4,7 @@ const util = require('util');
 const fsReadDir = async (args) => {
   const files = await util.promisify(fs.readdir)(args);
 
-  // Filter files that are not hidden by the OS such as .DS_Store
+  // Filter out files that are hidden by the OS such as .DS_Store
   return files.filter(name => !/^\./.test(name));
 };
 const fsWriteFile = util.promisify(fs.writeFile);
