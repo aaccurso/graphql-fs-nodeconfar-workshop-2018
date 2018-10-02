@@ -60,15 +60,15 @@ Una vez que tenemos nuestra consulta entonces estamos en condiciones enviarla a 
 
 ```json
 {
-  data: {
-    playlist: {
-      id: "playlist-1",
-      name: "Rock Nacional",
-      tracks: [{
-        id: "track-1",
-        name: "Ala Delta",
-        artist: {
-          name: "Divididos"
+  "data": {
+    "playlist": {
+      "id": "playlist-1",
+      "name": "Rock Nacional",
+      "tracks": [{
+        "id": "track-1",
+        "name": "Ala Delta",
+        "artist": {
+          "name": "Divididos"
         },
       }],
     }
@@ -93,10 +93,11 @@ type Track {
   name: String,
 }
 ```
+
  Podriamos definir los resolvers como se muestra a continuación:
 
- ```javascript
- const tracksData = {
+```javascript
+const tracksData = {
   track1: {
     id: ‘track1’,
     name: ‘Ala Delta’,
@@ -143,13 +144,8 @@ const resolvers = {
 
 ## Material adicional
 
-Caso de uso: GraphQL en Medallia https://www.youtube.com/watch?v=OkJLTOOZ9vM
-
-GraphQL home page: https://graphql.org/
-
-GraphQL tools: https://www.apollographql.com/docs/graphql-tools/
-
-ApolloJS home page (cliente de GraphQL): https://www.apollographql.com/
-
-GraphQL concepts: https://dev-blog.apollodata.com/the-concepts-of-graphql-bc68bd819be3
-
+- Caso de uso: GraphQL en Medallia https://www.youtube.com/watch?v=OkJLTOOZ9vM
+- GraphQL home page: https://graphql.org/
+- GraphQL tools: https://www.apollographql.com/docs/graphql-tools/
+- ApolloJS home page (cliente de GraphQL): https://www.apollographql.com/
+- GraphQL concepts: https://dev-blog.apollodata.com/the-concepts-of-graphql-bc68bd819be3
