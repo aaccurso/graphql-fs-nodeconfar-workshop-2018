@@ -1,79 +1,39 @@
 # Step 2
 
-Queremos listar los nombres de los directorios en `ROOT_PATH`.
-Luego queremos poder listar archivos y directorios recursivamente dentro de otros directorios.
+El objetivo de este paso es poder **listar los directorios** en `ROOT_PATH` de forma análoga a como lo hicimos en el paso anterior listando los archivos.
 
-__TODO__: pensar si extraer el _listado recursivo_ en otro step.
-
-Query:
+Es decir, dada la siguiente consulta:
 
 ```gql
 query listDirs {
   dirs {
     name
     type
-    files {
-      name
-      type
-    }
-    dirs {
-      name
-      type
-    }
   }
 }
 ```
 
-Resultado:
+Queremos obtener esta respuesta:
 
 ```json
 {
   "data": {
     "dirs": [
       {
-        "name": "dirA",
+        "name": "Father",
         "type": "Dir",
-        "files": [
-          {
-            "name": "fileA.txt",
-            "type": "File"
-          }
-        ],
-        "dirs": []
+      },
+      {
+        "name": "Mother",
+        "type": "Dir",
       }
     ]
   }
 }
 ```
 
-## Crear tipo __Dir__
+## Campo `type`
 
-__TODO__: completar
+Habrás notado que se agregó el campo `type` como propiedad de un directorio. Te animas a agregarselo también al tipo __File__?
 
-## Agregar field _dirs_ al tipo __Query__
-
-__TODO__: completar
-
-## Resolver field _dirs_ para tipo __Query__
-
-__TODO__: completar
-
-
-En este momento se puede realizar la siguiente query:
-
-```gql
-query listDirs {
-  dirs {
-    name
-    type
-  }
-}
-```
-
-## Agregar fields _files_ y _dirs_ al tipo __Dir__
-
-__TODO__: completar
-
-## Resolver _files_ y _dirs_ para tipo __Dir__
-
-__TODO__: completar
+> **Pro Tip**: intenta reutilizar el resolver de `files`, te va a ser de ayuda más adelante!
