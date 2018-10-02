@@ -1,6 +1,6 @@
 # Step 0
 
-__TODO__ agregar imagen de la familia Simpson.
+![The Simpsons](../img/simpsons.jpg)
 
 ## Enunciado
 
@@ -8,9 +8,9 @@ Vamos a implementar un esquema de GraphQL que nos permita listar archivos y dire
 
 Para ello nuestro punto de entrada o `ROOT_PATH` va a ser un directorio que contiene a los personajes de Los Simpsons organizados geneológicamente.
 
-Los archivos van a representar a los personajes y los directorios van a representar las relaciones entre dichos personajes.
+Los archivos van a representar a los personajes y los directorios van a representar las relaciones (madre o padre) entre dichos personajes.
 
-```
+```plain
 The_Simpsons/
 ├── Bart_Simpson.png
 ├── Lisa_Simpson.png
