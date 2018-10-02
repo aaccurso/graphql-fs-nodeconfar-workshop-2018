@@ -1,8 +1,8 @@
 # Step 1
 
-Queremos listar los nombres de los archivos en `ROOT_PATH`.
+Nuestro primer desafío consiste en **listar los nombres de los archivos** dentro de `ROOT_PATH`, donde se encuentran los personajes de Los Simpsons.
 
-Query:
+Es decir que dada la siguiente query:
 
 ```gql
 query listFiles {
@@ -12,17 +12,20 @@ query listFiles {
 }
 ```
 
-Result:
+El resultado de la misma deberia ser el siguiente:
 
 ```json
 {
   "data": {
     "files": [
       {
-        "name": "fileA.txt"
+        "name": "Bart_Simpson.png"
       },
       {
-        "name": "fileB.txt"
+        "name": "Lisa_Simpson.png"
+      },
+      {
+        "name": "Maggie_Simpson.png"
       }
     ]
   }
@@ -31,8 +34,11 @@ Result:
 
 ## Crear tipo __File__
 
-Los componentes más básicos de un _GraphQL schema_ son los tipos, que representan un objeto que
-se puede fetchear de nuestro servicio, y los _fields_ que tiene.
+Lo primero que debemos hacer es definir el esquema (_schema_) que nos permitirá resolver nuestra consulta. Los esquemas están compuestos por varios tipos y cada tipo asimismo está compuesto por uno o más campos (_fields_).
+
+Los campos pueden ser de **tipos escalares o no escalares**. Los campos escalares pueden ser de tipo _String_, _Int_, _Float_, _Boolean_ o _ID_ y representan un valor concreto de una propiedad de un objeto en nuestro sistema. Los campos no escalares son instancias de alguno de los tipos definidos en nuestro esquema y representan las relaciones entre los nodos de nuestro grafo.
+
+Nuestro esquema deberia incluir un tipo para representar un archivo de nuestro file system, donde los campos de ese tipo van a ser las distintas propiedades que nos interesa obtener del archivo. Por ejemplo:
 
 ```gql
 type File {
@@ -40,13 +46,15 @@ type File {
 }
 ```
 
-> __String__ es uno de los tipos escalares built-in de GraphQL.
+> __!__ es un modificador de tipo que indica que este campo no puede ser _null_.
 
-> __String!__ indica que GraphQL garantiza que el objeto no puede devolver _null_ para ese field.
+## El tipo __Query__
 
-## Agregar field _files_ al tipo __Query__
+Hasta ahora nuestro esquema está compuesto por el tipo _File_ que acabamos de definir. Sin embargo, no es suficiente para poder **realizar consultas** a nuestro servicio GraphQL.
 
-__TODO__: hablar del tipo Query
+Para ello debemos definir un tipo adicional, el tipo _Query_. El mismo define cuáles son los puntos a partir de los cuales podremos navegar el grafo formado por los objetos en nuestro sistema.
+
+En nuestro caso, nos interesa tener al menos un campo que nos permita obtener la lista de archivos en `ROOT_PATH`, por lo que el tipo _Query_ podría definirse como sigue:
 
 ```gql
 type Query {
@@ -54,20 +62,23 @@ type Query {
 }
 ```
 
-> __[File!]!__ representa un array de objetos de tipo File no _null_ y que siempre va a devolver un array,
-aunque sea vacío `[]`.
+> __[]__ es un modificador de tipo que indica que este campo es una lista.
 
-## Resolver field _files_
+## __Resolvers__
 
-__TODO__: hablar de resolvers
+Teniendo nuestro esquema definido, aun falta una última pieza para que el interprete de GraphQL pueda resolver una consulta. Falta implementar los resolvers.
+
+Los resolvers son un **conjunto de funciones** que permiten calcular los valores de los campos para aquellos casos en los que los mismos no se pueden obtener de forma trivial. Por ejemplo, para el esquema que hemos definido nos hace falta un único resolver:
 
 ```js
-{
+const resolvers = {
   Query: {
-    files: (obj, args) {
+    files: () => {
       // TODO: implement read ROOT_PATH dir
       return [];
     }
   }
-}
+};
 ```
+
+> Cabe destacar que en este caso el único resolver necesario es el del tipo _Query_, mientras que los resolvers del tipo _File_ no son necesarios ya que alcanza con devolver un objeto cuyas propiedades tengan los mismos nombres y tipos escalares que los campos del tipo _File_.
