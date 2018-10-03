@@ -46,16 +46,53 @@ Queremos obtener esta respuesta:
 
 ## Crear interfaz __Stat__
 
-__TODO__: hablar de interfaces y del método `__resolveType`
+Para poder tratar archivos y directorios de forma polimórfica es necesario contar con una entidad que defina sus campos en común.
+
+En GraphQL contamos con el tipo [Interface](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html#Interface-type), que nos va a permitir describir los campos que comparten `File` y `Dir`. En nuestro caso:
+
+```gql
+interface Stat {
+  # Fields in common
+}
+```
 
 ## Implementar interfaz __Stat__ para __File__ y __Dir__
 
-__TODO__: completar
+Luego es necesario modificar nuestro esquema para que los tipos `File` y `Dir` implementen la interfaz `Stat`.
 
-## Agregar field _ls_ al tipo __Query__
+Por ejemplo, para `File` modificamos su definición de esta forma:
 
-__TODO__: completar
+```gql
+type File implements Stat {
+  # Fields in common
+  # Fields unique to File
+}
+```
 
-## Resolver _ls_ para tipo __Query__
+## Resolver tipo __Stat__
 
-__TODO__: completar
+Solo falta indicarle a GraphQL cómo queremos que distinga entre los tipos `File` y `Dir`.
+
+Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat`, el cual debe devolver el tipo como string.
+
+```javascript
+{
+  Stat: {
+    __resolveType(obj) {
+      if (isFile(obj)) {
+        return 'File';
+      }
+
+      if (isDir(obj)) {
+        return 'Dir';
+      }
+
+      return null;
+    },
+  },
+}
+```
+
+## Implementar _ls_
+
+Ahora es tu turno! Solo queda agregar la definición de `ls` al tipo Query e implementar su resolver para que devuelva archivos y directorios.
