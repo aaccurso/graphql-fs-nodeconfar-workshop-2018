@@ -1,48 +1,43 @@
 # Step 4
 
-Queremos generar un listado de archivos y directorios a partir de un único comando.
-Luego para directorios queremos poder listar su contenido de manera recursiva.
+En este paso queremos generar un listado de archivos y directorios a partir de un único comando `ls`.
 
-Query:
+Es decir, dada la siguiente consulta:
 
 ```gql
 query list {
   ls {
     name
     type
-    ... on Dir {
-      ls {
-        name
-        type
-      }
-    }
   }
 }
 ```
 
-Resultado:
+Queremos obtener esta respuesta:
 
 ```json
 {
   "data": {
     "ls": [
       {
-        "name": "dirA",
-        "type": "Dir",
-        "ls": [
-          {
-            "name": "fileA.txt",
-            "type": "File"
-          }
-        ]
-      },
-      {
-        "name": "fileA.txt",
+        "name": "Bart_Simpson.png",
         "type": "File"
       },
       {
-        "name": "fileB.txt",
+        "name": "Father",
+        "type": "Dir"
+      },
+      {
+        "name": "Lisa_Simpson.png",
         "type": "File"
+      },
+      {
+        "name": "Maggie_Simpson.png",
+        "type": "File"
+      },
+      {
+        "name": "Mother",
+        "type": "Dir"
       }
     ]
   }
@@ -62,24 +57,5 @@ __TODO__: completar
 __TODO__: completar
 
 ## Resolver _ls_ para tipo __Query__
-
-__TODO__: completar
-
-En este momento se puede realizar la siguiente query:
-
-```gql
-query list {
-  ls {
-    name
-    type
-  }
-}
-```
-
-## Agregar field _ls_ al tipo __Dir__
-
-__TODO__: completar
-
-## Resolver _ls_ para tipo __Dir__
 
 __TODO__: completar
