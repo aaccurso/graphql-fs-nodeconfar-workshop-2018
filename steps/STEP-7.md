@@ -40,3 +40,7 @@ __TODO__: completar
 ## Resolver tipo __Mutation__
 
 __TODO__: completar
+
+---
+
+[Paso anterior](STEP-6.md) - The End :tada:
