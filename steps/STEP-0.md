@@ -44,10 +44,18 @@ Antes de comenzar vamos a verificar que todo este andando correctamente en nuest
 
 ## FileSystem API
 
-Para resolver el ejercicio es una buena idea tener a mano la documentación de los siguientes métodos de la API `fs`:
+Para resolver el ejercicio es una buena idea repasar la documentación de los siguientes métodos de la API `fs`:
 
 * [readdir](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)(path)
 * [stat](https://nodejs.org/api/fs.html#fs_fs_stat_path_options_callback)(path)
 * [writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)(filename, data)
 
 En el source del proyecto vas a encontrar un módulo `filesystem.js` que expone dichos métodos wrappeados en promises para así aprovechar la sintáxis _async/await_ soportada en la versión de Node.js que vamos a utilizar. Sin embargo, esto es opcional ya que también se puede usar la convención de callbacks que ya todos conocemos.
+
+## Tests
+
+En cada paso del workshop es posible ejecutar el comando `npm run test:step-N` donde `N` es el numero de paso actual. Esto nos permite verificar si nuestra implementación resuelve lo especificado en cada paso.
+
+## All set!
+
+Eso es todo! Ya podes comenzar a resolver el [Step 1](STEP-1.md).
