@@ -82,3 +82,7 @@ const resolvers = {
 ```
 
 > Cabe destacar que en este caso el único resolver necesario es el del tipo _Query_, mientras que los resolvers del tipo _File_ no son necesarios ya que alcanza con devolver un objeto cuyas propiedades tengan los mismos nombres y tipos escalares que los campos del tipo _File_.
+
+---
+
+[Paso anterior](STEP-0.md) - [Paso siguiente](STEP-2.md)
