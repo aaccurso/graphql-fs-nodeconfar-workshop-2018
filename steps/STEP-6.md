@@ -1,12 +1,12 @@
 # Step 6
 
-Queremos listar un directorio específico dentro de nuestro `ROOT_PATH`.
+Queremos listar un directorio específico.
 
-Query:
+Dada la siguiente consulta:
 
 ```gql
-query listDirA {
-  ls(dir: "dirA") {
+query listDir {
+  ls(dir: "Mother") {
     ...stats
     ... on Dir {
       parent
@@ -21,14 +21,32 @@ fragment stats on Stat {
 }
 ```
 
-Resultado:
+Queremos obtener este resultado:
 
 ```json
 {
   "data": {
     "ls": [
       {
-        "name": "fileA.txt",
+        "name": "Father",
+        "type": "Dir",
+        "parent": "Mother"
+      },
+      {
+        "name": "Marge_Simpson.png",
+        "type": "File"
+      },
+      {
+        "name": "Mother",
+        "type": "Dir",
+        "parent": "Mother"
+      },
+      {
+        "name": "Patty_Bouvier.png",
+        "type": "File"
+      },
+      {
+        "name": "Selma_Bouvier.png",
         "type": "File"
       }
     ]
