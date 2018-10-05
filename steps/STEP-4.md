@@ -48,11 +48,11 @@ Queremos obtener esta respuesta:
 
 Para poder tratar archivos y directorios de forma polimórfica es necesario contar con una entidad que defina sus campos en común.
 
-En GraphQL contamos con el tipo [Interface](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html#Interface-type), que nos va a permitir describir los campos que comparten `File` y `Dir`. En nuestro caso:
+En GraphQL contamos con el tipo abstracto [Interface](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html#Interface-type), que nos va a permitir describir los campos que comparten `File` y `Dir`. En nuestro caso:
 
 ```gql
 interface Stat {
-  # Fields in common
+  # Campos comunes
 }
 ```
 
@@ -64,8 +64,8 @@ Por ejemplo, para `File` modificamos su definición de esta forma:
 
 ```gql
 type File implements Stat {
-  # Fields in common
-  # Fields unique to File
+  # Campos comunes
+  # Campos particulares de File
 }
 ```
 
