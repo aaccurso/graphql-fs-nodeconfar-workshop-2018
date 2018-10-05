@@ -144,3 +144,7 @@ En primer lugar va a computar los campos triviales del campo `dirs` que está m�
 Luego intentará resolver los campos no triviales, es decir aquellos que se computan usando resolvers, invocando los distintos resolvers y pasándoles como primer parámetro este objeto. Es así como el resolver del campo `Dir.dirs` recibirá como primer parámetro un objeto con el nombre de la carpeta desde donde se está haciendo la consulta. Este proceso se repetirá tantas veces como sea necesario.
 
 El argumento _obj_ es de particular importancia porque es el que __permite que nuestras consultas puedan tener anidamiento__.
+
+---
+
+[Paso anterior](STEP-2.md) - [Paso siguiente](STEP-4.md)
