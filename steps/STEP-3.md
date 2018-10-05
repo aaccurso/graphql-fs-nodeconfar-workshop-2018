@@ -92,26 +92,55 @@ Además, vamos a necesitar crear los resolvers para estos nuevos campos, ya que 
 
 ```javascript
 {
+  Query: {
+    files: () => {
+      // Resolver del campo files implementado en el STEP 1
+    }
+    dirs: () => {
+      // Resolver del campo dirs implementado en el STEP 2
+    }
+  }
   Dir: {
     files: obj => {
-      // TODO: read files from current resolved dir
+      // TODO: leer los archivos del directorio actual
+      // la info del directorio actual se encuentra en el parametro obj
       return [];
     },
+    dirs: obj => {
+      // TODO: leer los directorios del directorio actual
+      // la info del directorio actual se encuentra en el parametro obj
+      return [];
+    }
   },
 }
 ```
 
-## El argumento _obj_
+Es importante notar cada vez que el interprete de GraphQL tenga que resolver el campo `files` o `dirs` de un objeto tipo `Dir` utilizará estos resolvers.
 
-El primer argumento de una función _resolver_ representa el objeto que contiene el resultado devuelto por el resolver del campo padre.
+### El argumento _obj_
 
-En nuestro ejemplo, el argumento _obj_ de `Dir.files` contiene el objeto que resuelve el resolver de `Query.dirs`. Es decir:
+El primer argumento de una función _resolver_ es el objeto devuelto por el _resolver_ del campo padre.
+
+Supongamos que nuestro interprete GraphQL recibe la siguiente la consulta:
+
+```gql
+query listDirs {
+  dirs {
+    name
+    dirs {
+      name
+    }
+  }
+}
+```
+En primer lugar va a computar los campos triviales del campo `dirs` que está más afuera, el cual dará como resultado un objeto similar a este:
 
 ```javascript
 {
   name: "Father",
-  type: "Dir"
 }
 ```
 
-Por lo tanto, en nuestro resolver podemos acceder a `obj.name` para poder seguir consultando niveles más profundos de nuestro filesystem.
+Luego intentará resolver los campos no triviales, es decir aquellos que se computan usando resolvers, invocando los distintos resolvers y pasándoles como primer parámetro este objeto. Es así como el resolver del campo `Dir.dirs` recibirá como primer parámetro un objeto con el nombre de la carpeta desde donde se está haciendo la consulta. Este proceso se repetirá tantas veces como sea necesario.
+
+El argumento _obj_ es de particular importancia porque es el que __permite que nuestras consultas puedan tener anidamiento__.
