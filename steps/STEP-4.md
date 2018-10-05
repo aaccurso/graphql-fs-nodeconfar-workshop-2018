@@ -96,3 +96,7 @@ Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat
 ## Implementar _ls_
 
 Ahora es tu turno! Solo queda agregar la definición de `ls` al tipo Query e implementar su resolver para que devuelva archivos y directorios.
+
+---
+
+[Paso anterior](STEP-3.md) - [Paso siguiente](STEP-5.md)
