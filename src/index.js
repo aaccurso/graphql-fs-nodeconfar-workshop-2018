@@ -1,13 +1,12 @@
 const { ApolloServer } = require('apollo-server');
 const schema = require('./schema');
 
-// In the most basic sense, the ApolloServer can be started
-// by passing type definitions (typeDefs) and the resolvers
-// responsible for fetching the data for those types.
+// Se crea el server de Apollo que va a escuchar las consultas
+// y resolverlas a partir de nuestro esquema.
 const server = new ApolloServer({ schema });
 
-// This `listen` method launches a web-server.  Existing apps
-// can utilize middleware options, which we'll discuss later.
+// Se comienza a escuchar las consultas y se levanta la interfaz
+// gráfica para realizar consultas con GraphQL Playground.
 server.listen().then(({ url }) => {
   // eslint-disable-next-line no-console
   console.log(`🚀  Server ready at ${url}`);
