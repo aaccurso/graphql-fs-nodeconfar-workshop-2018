@@ -37,3 +37,7 @@ Queremos obtener esta respuesta:
 Habrás notado que se agregó el campo `type` como propiedad de un directorio. Te animas a agregarselo también al tipo __File__?
 
 > **Pro Tip**: intenta reutilizar el resolver de `files`, te va a ser de ayuda más adelante!
+
+---
+
+[Paso anterior](STEP-1.md) - [Paso siguiente](STEP-3.md)
