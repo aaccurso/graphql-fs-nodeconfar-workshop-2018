@@ -63,3 +63,7 @@ __TODO__: completar
 ## Utilizar argumento _dir_ en el resolver de _ls_ para el tipo __Query__
 
 __TODO__: completar
+
+---
+
+[Paso anterior](STEP-5.md) - [Paso siguiente](STEP-7.md)
