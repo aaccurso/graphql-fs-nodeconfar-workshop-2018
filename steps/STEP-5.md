@@ -94,6 +94,6 @@ Queremos obtener esta respuesta:
 
 Como el field `ls` devuelve objetos de tipo `Stat`, solo podemos seleccionar de forma directa los campos definidos en dicha interfaz.
 
-Para poder seleccionar campos de un tipo concreto que implementa `Stat`, como el tipo `Dir`, es necesario recurrir a los _inline fragments_.
+Para poder seleccionar campos de un tipo concreto que implementa `Stat`, como el tipo `Dir`, es necesario recurrir a los _[inline fragments](https://graphql.org/learn/queries/#inline-fragments)_.
 
-En nuestra consulta el fragmento está definido como `... on Dir`, por lo que el field `ls` dentro del fragmento solo va a ejecutarse si el `Stat` es de tipo `Dir`.
+En nuestra consulta el fragmento está definido como `... on Dir`, por lo que el field `ls` dentro del fragmento sólo se ejecutará cuando el `Stat` sea de tipo `Dir`.
