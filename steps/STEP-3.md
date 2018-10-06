@@ -1,4 +1,4 @@
-# Step 3
+# Step 3 <img align="right" width="100" height="100" src="../img/graphql-fs-level-3.png">
 
 El objetivo de este paso es poder listar los directorios y sus archivos de forma **recursiva**.
 
@@ -146,5 +146,7 @@ Luego intentará resolver los campos no triviales, es decir aquellos que se comp
 El argumento _obj_ es de particular importancia porque es el que __permite que nuestras consultas puedan tener anidamiento__.
 
 ---
+
+Antes de continuar verifica que pasen los tests: `npm run test:step-3`
 
 [Paso anterior](STEP-2.md) - [Paso siguiente](STEP-4.md)
