@@ -56,7 +56,7 @@ En el source del proyecto vas a encontrar un módulo `filesystem.js` que expone 
 
 ## Tests
 
-En cada paso del workshop es posible ejecutar el comando `npm run test:step-N` donde `N` es el numero de paso actual. Esto nos permite verificar si nuestra implementación resuelve lo especificado en cada paso.
+En cada paso del workshop es posible ejecutar el comando `npm run test:N` donde `N` es el numero de paso actual. Esto nos permite verificar si nuestra implementación resuelve lo especificado en cada paso.
 
 ## All set!
 

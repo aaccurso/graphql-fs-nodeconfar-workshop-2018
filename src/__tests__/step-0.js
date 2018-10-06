@@ -1,5 +1,6 @@
 const { graphql } = require('graphql');
 const schema = require('../schema');
+const { readDir } = require('../filesystem');
 
 describe('step 0', () => {
   it('should query hello', async () => {
@@ -20,5 +21,13 @@ describe('step 0', () => {
     `;
 
     expect(await graphql({ schema, source })).toMatchSnapshot();
+  });
+
+  describe('readDir', () => {
+    it('should list files and directories', async () => {
+      const files = await readDir();
+
+      expect(files).toMatchSnapshot();
+    });
   });
 });

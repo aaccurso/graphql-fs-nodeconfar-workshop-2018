@@ -85,6 +85,6 @@ const resolvers = {
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-1`
+Antes de continuar verifica que pasen los tests: `npm run test:1`
 
 [Paso anterior](STEP-0.md) - [Paso siguiente](STEP-2.md)
