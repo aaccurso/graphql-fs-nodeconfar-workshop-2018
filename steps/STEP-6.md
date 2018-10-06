@@ -1,4 +1,4 @@
-# Step 6
+# Step 6 <img align="right" width="100" height="100" src="../img/graphql-fs-level-6.png">
 
 Queremos listar un directorio específico.
 
@@ -65,5 +65,7 @@ __TODO__: completar
 __TODO__: completar
 
 ---
+
+Antes de continuar verifica que pasen los tests: `npm run test:step-6`
 
 [Paso anterior](STEP-5.md) - [Paso siguiente](STEP-7.md)
