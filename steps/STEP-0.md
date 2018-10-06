@@ -39,10 +39,10 @@ Antes de comenzar vamos a verificar que todo este andando correctamente en nuest
 
 > Es recomendable instalar la versión 8+ de Node.js ya que todas las herramientas utilizadas en el workshop fueron probadas con dicha versión.
 
-* No te olvides de poner el where en el delete from: `npm install`.
-* Ejecuta `npm run test:step-0` para verificar que todo este bajo control.
-* Ejecuta `npm run start:dev` para levantar el servicio GraphQL.
-* Entra a http://localhost:4000/ e intenta ejecutar la query `{ hello }`.
+1) [No te olvides de poner el where en el delete from](https://www.youtube.com/watch?v=i_cVJgIz_Cs): `npm install`.
+2) Ejecuta `npm run test:step-0` para verificar que todo este bajo control.
+3) Ejecuta `npm run start:dev` para levantar el servicio GraphQL.
+4) Entra a http://localhost:4000/ e intenta ejecutar la query `{ hello }`.
 
 ## FileSystem API
 
