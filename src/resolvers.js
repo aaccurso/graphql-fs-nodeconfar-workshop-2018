@@ -14,7 +14,6 @@ module.exports = {
     hello(obj, { name }) {
       return `Hello ${name || 'World'}!`;
     },
-    // Add below resolvers for Query
     // Agrega debajo los resolvers para Query
   },
   // Agrega debajo los resolvers para tipos custom como File
