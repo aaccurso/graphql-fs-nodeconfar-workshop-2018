@@ -1,4 +1,4 @@
-# Step 7
+# Step 7 <img align="right" width="100" height="100" src="../img/graphql-fs-level-7.png">
 
 Queremos crear un archivo y escribir contenido en el mismo.
 
@@ -42,5 +42,7 @@ __TODO__: completar
 __TODO__: completar
 
 ---
+
+Antes de continuar verifica que pasen los tests: `npm run test:step-7`
 
 [Paso anterior](STEP-6.md) - The End :tada:
