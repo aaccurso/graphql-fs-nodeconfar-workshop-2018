@@ -1,4 +1,4 @@
-# Step 1
+# Step 1 <img align="right" width="100" height="100" src="../img/graphql-fs-level-1.png">
 
 Nuestro primer desafío consiste en **listar los nombres de los archivos** dentro de `ROOT_PATH`, donde se encuentran los personajes de Los Simpsons.
 
