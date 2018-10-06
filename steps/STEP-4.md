@@ -99,6 +99,6 @@ Ahora es tu turno! Solo queda agregar la definición de `ls` al tipo Query e imp
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-4`
+Antes de continuar verifica que pasen los tests: `npm run test:4`
 
 [Paso anterior](STEP-3.md) - [Paso siguiente](STEP-5.md)

@@ -43,6 +43,6 @@ __TODO__: completar
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-7`
+Antes de continuar verifica que pasen los tests: `npm run test:7`
 
 [Paso anterior](STEP-6.md) - The End :tada:

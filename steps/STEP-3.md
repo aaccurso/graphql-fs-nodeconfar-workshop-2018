@@ -147,6 +147,6 @@ El argumento _obj_ es de particular importancia porque es el que __permite que n
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-3`
+Antes de continuar verifica que pasen los tests: `npm run test:3`
 
 [Paso anterior](STEP-2.md) - [Paso siguiente](STEP-4.md)

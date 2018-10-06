@@ -66,6 +66,6 @@ __TODO__: completar
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-6`
+Antes de continuar verifica que pasen los tests: `npm run test:6`
 
 [Paso anterior](STEP-5.md) - [Paso siguiente](STEP-7.md)

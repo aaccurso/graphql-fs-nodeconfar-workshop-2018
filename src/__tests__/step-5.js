@@ -14,7 +14,7 @@ describe('step 5', () => {
     `;
 
     expect(await graphql({ schema, source })).toMatchSnapshot();
-  });  
+  });
 
   it('should query list recursively', async () => {
     const source = `

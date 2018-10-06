@@ -100,6 +100,6 @@ En nuestra consulta el fragmento está definido como `... on Dir`, por lo que el
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-5`
+Antes de continuar verifica que pasen los tests: `npm run test:5`
 
 [Paso anterior](STEP-4.md) - [Paso siguiente](STEP-6.md)

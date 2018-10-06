@@ -40,6 +40,6 @@ Habrás notado que se agregó el campo `type` como propiedad de un directorio. T
 
 ---
 
-Antes de continuar verifica que pasen los tests: `npm run test:step-2`
+Antes de continuar verifica que pasen los tests: `npm run test:2`
 
 [Paso anterior](STEP-1.md) - [Paso siguiente](STEP-3.md)

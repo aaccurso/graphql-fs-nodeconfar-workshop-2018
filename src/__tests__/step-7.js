@@ -6,7 +6,7 @@ jest.mock('../filesystem');
 
 describe('step 7', () => {
   it('should execute writeFile mutation', async () => {
-    filesystem.fsWriteFile.mockImplementation(() => Promise.resolve({
+    filesystem.writeFile.mockImplementation(() => Promise.resolve({
       name: 'test.txt',
     }));
     const source = `
@@ -22,11 +22,6 @@ describe('step 7', () => {
     };
 
     expect(await graphql({ schema, source, variableValues })).toMatchSnapshot();
-    expect(filesystem.fsWriteFile).toBeCalledWith(
-      undefined,
-      { content: 'test', name: 'test.txt' },
-      undefined,
-      expect.anything(),
-    );
+    expect(filesystem.writeFile).toBeCalledWith('test.txt', 'test');
   });
 });
