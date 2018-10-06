@@ -1,4 +1,4 @@
-# Step 4
+# Step 4 <img align="right" width="100" height="100" src="../img/graphql-fs-level-4.png">
 
 En este paso queremos generar un listado de archivos y directorios a partir de un único comando `ls`.
 
@@ -98,5 +98,7 @@ Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat
 Ahora es tu turno! Solo queda agregar la definición de `ls` al tipo Query e implementar su resolver para que devuelva archivos y directorios.
 
 ---
+
+Antes de continuar verifica que pasen los tests: `npm run test:step-4`
 
 [Paso anterior](STEP-3.md) - [Paso siguiente](STEP-5.md)
