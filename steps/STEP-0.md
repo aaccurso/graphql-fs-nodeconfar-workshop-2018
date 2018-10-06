@@ -1,6 +1,8 @@
 # Step 0 <img align="right" width="100" height="100" src="../img/graphql-fs-level-0.png">
 
-![The Simpsons](../img/simpsons.jpg)
+<p align="center">
+  <img src="../img/simpsons.jpg">
+</p>
 
 ## Enunciado
 
