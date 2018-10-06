@@ -1,4 +1,4 @@
-# Introducción a GraphQL
+# Introducción a GraphQL <img align="right" width="100" height="100" src="img/graphql-fs.png">
 
 Cuando hablamos de GraphQL nos referimos tanto a un lenguaje que nos permite hacer consultas así como un intérprete que permite resolver esas consultas usando los datos de nuestra aplicación.
 
@@ -6,7 +6,9 @@ Cuando hablamos de GraphQL nos referimos tanto a un lenguaje que nos permite hac
 
 En primer lugar debemos usar el lenguaje provisto por GraphQL para definir el esquema (schema) de nuestra aplicación. Pero, ¿qué es un esquema? __Un esquema es una colección de tipos__ los cuales permiten representar el __grafo de los datos de nuestra aplicación__. Es decir, supongamos que en nuestra aplicación tenemos los siguientes datos:
 
-![Grafo de tipos](./img/graph.png)
+<p align="center">
+  <img width="500" height="500" src="img/graph.png">
+</p>
 
 Nuestro esquema entonces estaría compuesto en principio por tres tipos: uno para la Playlist, otro para el Track y finalmente otro para el Artist. Cada uno de estos tipos asimismo está compuesto por ciertos campos (fields) que pueden ser escalares o no escalares. Los campos escalares permiten representar propiedades de un tipo como el id o el nombre, mientras que los campos no escalares representan las relaciones con otros nodos dentro del grafo. Por ejemplo, una posible definición de un tipo sería la siguiente:
 
