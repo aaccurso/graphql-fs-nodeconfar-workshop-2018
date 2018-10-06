@@ -1,4 +1,4 @@
-# Step 5
+# Step 5 <img align="right" width="100" height="100" src="../img/graphql-fs-level-5.png">
 
 El objetivo de este paso es poder listar los directorios y sus archivos con un solo comando de forma **recursiva**.
 
@@ -99,5 +99,7 @@ Para poder seleccionar campos de un tipo concreto que implementa `Stat`, como el
 En nuestra consulta el fragmento está definido como `... on Dir`, por lo que el field `ls` dentro del fragmento sólo se ejecutará cuando el `Stat` sea de tipo `Dir`.
 
 ---
+
+Antes de continuar verifica que pasen los tests: `npm run test:step-5`
 
 [Paso anterior](STEP-4.md) - [Paso siguiente](STEP-6.md)
