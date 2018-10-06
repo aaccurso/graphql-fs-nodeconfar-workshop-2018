@@ -1,6 +1,8 @@
 # GraphQL FileSystem · [![CircleCI](https://circleci.com/gh/aaccurso/graphql-fs-nodeconfar-workshop-2018.svg?style=svg&circle-token=d815f072dd7b04e0425b8ff286ac15c3153b10f0)](https://circleci.com/gh/aaccurso/graphql-fs-nodeconfar-workshop-2018)
 
-![GraphQL FileSystem](img/graphql-fs.png)
+<p align="center">
+  <img src="img/graphql-fs.png">
+</p>
 
 Este workshop se da en el marco de la [NodeConf Argentina 2018](https://2018.nodeconf.com.ar/alan-accurso-sebastian-urbina.html).
 
