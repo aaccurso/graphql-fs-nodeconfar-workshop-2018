@@ -9,9 +9,10 @@ const {
   FILE_TYPE, DIR_TYPE, readDir, writeFile,
 } = require('./filesystem');
 
-const filesResolver = typeFilter => async (obj) => {
-  const parent = obj ? obj.name : '';
-  const files = await readDir(parent);
+const filesResolver = typeFilter => async (obj, { dir }) => {
+  const parent = obj ? `${obj.name}/` : '';
+  const finalPath = dir ? `${parent}${dir}` : parent;
+  const files = await readDir(finalPath);
 
   if (!typeFilter) {
     return files;

@@ -11,7 +11,7 @@ type Query {
   # Agrega debajo definiciones de campos para Query
   files: [File!]!
   dirs: [Dir!]!
-  ls: [Stat!]!
+  ls(dir: String): [Stat!]!
 }
 # Agrega debajo definiciones de tipo como File
 interface Stat {
