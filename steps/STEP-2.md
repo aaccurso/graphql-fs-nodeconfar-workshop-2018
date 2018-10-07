@@ -32,11 +32,13 @@ Queremos obtener esta respuesta:
 }
 ```
 
-## Campo `type`
+## Crear tipo Dir y resolver `dirs`
 
-Habrás notado que se agregó el campo `type` como propiedad de un directorio. Te animas a agregarselo también al tipo __File__?
+De la misma forma que con _File_ necesitamos crear el tipo _Dir_ que va a devolver nuestra nueva query `dirs`.
 
-> **Pro Tip**: intenta reutilizar el resolver de `files`, te va a ser de ayuda más adelante!
+Si bien en este paso _File_ y _Dir_ van a terminar teniendo la misma definición de campos, queremos poder distinguirlos para una parte muy importante del ejercicio, pero no nos adelantemos!
+
+> **Pro Tip**: intenta reutilizar la lógica del resolver de `files` para nuestro nuevo resolver `dirs`, te va a ser de ayuda más adelante!
 
 ---
 
