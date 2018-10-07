@@ -38,5 +38,6 @@ module.exports = {
   Dir: {
     files: filesResolver(FILE_TYPE),
     dirs: filesResolver(DIR_TYPE),
+    ls: filesResolver(),
   },
 };

@@ -27,5 +27,6 @@ type Dir implements Stat {
   type: String!
   files: [File!]!
   dirs: [Dir!]!
+  ls: [Stat!]!
 }
 `;
