@@ -22,7 +22,7 @@ GraphQL ha revolucionado la forma en que desarrollamos y consumimos nuestras API
 - [Step 6](/steps/STEP-6.md): Listar archivos y directorios de un directorio específico.
 - [Step 7](/steps/STEP-7.md): Crear archivo.
 
-## Authors
+## Organizadores
 
 - Alan Accurso · [aaccurso](https://github.com/aaccurso)
-- Sebastián Urbina · [surbina](https://github.com/surbina)
+- Sebastian Urbina · [surbina](https://github.com/surbina)
