@@ -8,6 +8,7 @@ Es decir que dada la siguiente query:
 query listFiles {
   files {
     name
+    type
   }
 }
 ```
@@ -19,13 +20,16 @@ El resultado de la misma deberia ser el siguiente:
   "data": {
     "files": [
       {
-        "name": "Bart_Simpson.png"
+        "name": "Bart_Simpson.png",
+        "type": "File",
       },
       {
-        "name": "Lisa_Simpson.png"
+        "name": "Lisa_Simpson.png",
+        "type": "File",
       },
       {
-        "name": "Maggie_Simpson.png"
+        "name": "Maggie_Simpson.png",
+        "type": "File",
       }
     ]
   }
@@ -34,7 +38,7 @@ El resultado de la misma deberia ser el siguiente:
 
 ## Crear tipo __File__
 
-Lo primero que debemos hacer es definir el esquema (_schema_) que nos permitirá resolver nuestra consulta. Los esquemas están compuestos por varios tipos y cada tipo asimismo está compuesto por uno o más campos (_fields_).
+Lo primero que debemos hacer es definir el esquema (_schema_) que nos permitirá resolver nuestra consulta. Los esquemas están compuestos por varios tipos (ubicados en [src/typeDefs.js](../src/typeDefs.js)) y cada tipo asimismo está compuesto por uno o más campos (_fields_).
 
 Los campos pueden ser de **tipos escalares o no escalares**. Los campos escalares pueden ser de tipo _String_, _Int_, _Float_, _Boolean_ o _ID_ y representan un valor concreto de una propiedad de un objeto en nuestro sistema. Los campos no escalares son instancias de alguno de los tipos definidos en nuestro esquema y representan las relaciones entre los nodos de nuestro grafo.
 
@@ -54,7 +58,7 @@ Hasta ahora nuestro esquema está compuesto por el tipo _File_ que acabamos de d
 
 Para ello debemos definir un tipo adicional, el tipo _Query_. El mismo define cuáles son los puntos a partir de los cuales podremos navegar el grafo formado por los objetos en nuestro sistema.
 
-En nuestro caso, nos interesa tener al menos un campo que nos permita obtener la lista de archivos en `ROOT_PATH`, por lo que el tipo _Query_ podría definirse como sigue:
+En nuestro caso, nos interesa tener al menos un campo que nos permita obtener la lista de archivos, por lo que el tipo _Query_ podría definirse como sigue:
 
 ```gql
 type Query {
@@ -66,20 +70,21 @@ type Query {
 
 ## __Resolvers__
 
-Teniendo nuestro esquema definido, aun falta una última pieza para que el interprete de GraphQL pueda resolver una consulta. Falta implementar los resolvers.
+Teniendo nuestro esquema definido, aun falta una última pieza para que el interprete de GraphQL pueda resolver una consulta. Falta implementar los resolvers ubicados en [src/resolvers.js](../src/resolvers.js).
 
 Los resolvers son un **conjunto de funciones** que permiten calcular los valores de los campos para aquellos casos en los que los mismos no se pueden obtener de forma trivial. Por ejemplo, para el esquema que hemos definido nos hace falta un único resolver:
 
 ```js
 const resolvers = {
   Query: {
-    files: () => {
-      // TODO: implement read ROOT_PATH dir
-      return [];
+    files: async () => {
+      // Listar archivos usando `readDir`
     }
   }
 };
 ```
+
+Para facilitar la lectura de directorios implementamos el helper `readDir` ubicado en [src/filesystem.js](../src/filesystem.js) que lee `ROOT_PATH` y devuelve un listado de objetos con la información que necesitamos de los archivos.
 
 > Cabe destacar que en este caso el único resolver necesario es el del tipo _Query_, mientras que los resolvers del tipo _File_ no son necesarios ya que alcanza con devolver un objeto cuyas propiedades tengan los mismos nombres y tipos escalares que los campos del tipo _File_.
 
