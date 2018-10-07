@@ -9,4 +9,7 @@ module.exports = {
     "env": {
         "jest/globals": true,
     },
+    "rules": {
+        "indent": ["error", 2],
+    },
 };

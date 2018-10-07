@@ -1,9 +1,10 @@
 const { ApolloServer } = require('apollo-server');
 const schema = require('./schema');
+const playground = require('./playground');
 
 // Se crea el server de Apollo que va a escuchar las consultas
 // y resolverlas a partir de nuestro esquema.
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ schema, playground });
 
 // Se comienza a escuchar las consultas y se levanta la interfaz
 // gráfica para realizar consultas con GraphQL Playground.

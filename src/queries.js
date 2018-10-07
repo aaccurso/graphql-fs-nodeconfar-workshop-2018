@@ -68,25 +68,27 @@ query list {
 `;
 
 const listRecursive = `
-ls {
-  name
-  type
-  ... on Dir {
-    ls {
-      name
-      type
+query listRecursive {
+  ls {
+    name
+    type
+    ... on Dir {
+      ls {
+        name
+        type
+      }
     }
   }
 }
 `;
 
 const listDir = `
-  query listDir {
-    ls(dir: "Mother") {
-      name
-      type
-    }
+query listDir {
+  ls(dir: "Mother") {
+    name
+    type
   }
+}
 `;
 
 const listDirRecursive = `
@@ -94,7 +96,9 @@ query listDir {
   ls(dir: "Mother") {
     ...stats
     ... on Dir {
-      ...stats
+      ls {
+        ...stats
+      }
     }
   }
 }
