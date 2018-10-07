@@ -15,6 +15,11 @@ module.exports = {
       return `Hello ${name || 'World'}!`;
     },
     // Agrega debajo los resolvers para Query
+    files: async () => {
+      const files = await readDir();
+
+      return files.filter(file => file.type === FILE_TYPE);
+    },
   },
   // Agrega debajo los resolvers para tipos custom como File
 };
