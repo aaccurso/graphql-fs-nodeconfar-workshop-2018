@@ -35,7 +35,7 @@ The_Simpsons/
 
 ## Setup
 
-Antes de comenzar vamos a verificar que todo este andando correctamente en nuestro entorno local.
+Antes de comenzar vamos a verificar que todo este funcionando correctamente en nuestro entorno local.
 
 > Es recomendable instalar la versión 8+ de Node.js ya que todas las herramientas utilizadas en el workshop fueron probadas con dicha versión.
 
@@ -46,18 +46,22 @@ Antes de comenzar vamos a verificar que todo este andando correctamente en nuest
 
 ## FileSystem API
 
-Para resolver el ejercicio es una buena idea repasar la documentación de los siguientes métodos de la API `fs`:
+Para resolver el ejercicio hacemos uso de los siguientes métodos de la API de `fs`:
 
 * [readdir](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)(path)
 * [stat](https://nodejs.org/api/fs.html#fs_fs_stat_path_options_callback)(path)
 * [writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)(filename, data)
 
-En el source del proyecto vas a encontrar un módulo `filesystem.js` que expone dichos métodos wrappeados en promises para así aprovechar la sintáxis _async/await_ soportada en la versión de Node.js que vamos a utilizar. Sin embargo, esto es opcional ya que también se puede usar la convención de callbacks que ya todos conocemos.
+Sin embargo, para agilizar el workshop implementamos el módulo [src/filesystem.js](../src/filesystem.js) que expone los helpers `readDir` y `writeFile` los cuales utilizan los métodos de la API de `fs` de forma tal que nos permitan realizar las operaciones necesarias para resolver el ejercicio sin necesidad de invertir tiempo analizando la documentación de Node.js.
+
+Dichos helpers devuelven promises, lo que nos permitirá aprovechar la sintáxis _async/await_ soportada en la versión de Node.js que vamos a utilizar. Los resolvers de GraphQL soportan el uso de promises por lo que nos va a ser de ayuda durante el ejercicio.
 
 ## Tests
 
 En cada paso del workshop es posible ejecutar el comando `npm run test:N` donde `N` es el numero de paso actual. Esto nos permite verificar si nuestra implementación resuelve lo especificado en cada paso.
 
-## All set!
+## Ready, set, go!
 
-Eso es todo! Ya podes comenzar a resolver el [Step 1](STEP-1.md).
+Eso es todo! Ya podes comenzar a resolver el [Step 1](STEP-1.md) del ejercicio.
+
+Cualquier duda o consulta no olvides preguntar a los organizadores del workshop.
