@@ -9,17 +9,20 @@ const {
   FILE_TYPE, DIR_TYPE, readDir, writeFile,
 } = require('./filesystem');
 
+const filesResolver = typeFilter => async () => {
+  const files = await readDir();
+
+  return files.filter(file => file.type === typeFilter);
+};
+
 module.exports = {
   Query: {
     hello(obj, { name }) {
       return `Hello ${name || 'World'}!`;
     },
     // Agrega debajo los resolvers para Query
-    files: async () => {
-      const files = await readDir();
-
-      return files.filter(file => file.type === FILE_TYPE);
-    },
+    files: filesResolver(FILE_TYPE),
+    dirs: filesResolver(DIR_TYPE),
   },
   // Agrega debajo los resolvers para tipos custom como File
 };
