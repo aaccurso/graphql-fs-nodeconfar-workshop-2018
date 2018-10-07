@@ -40,6 +40,14 @@ Si bien en este paso _File_ y _Dir_ van a terminar teniendo la misma definición
 
 > **Pro Tip**: intenta reutilizar la lógica del resolver de `files` para nuestro nuevo resolver `dirs`, te va a ser de ayuda más adelante!
 
+## Seleccionar más de un field dentro de Query
+
+Así como podemos seleccionar varios campos de un tipo custom como _File_ o _Dir_, también podemos hacerlo con Query.
+
+Luego de implementar `dirs` puedes intentar seleccionar tanto `files` como `dirs` en la misma query.
+
+Te animas a probarlo en el [GraphQL Playground](https://localhost:4000)?
+
 ---
 
 Antes de continuar verifica que pasen los tests: `npm run test:2`
