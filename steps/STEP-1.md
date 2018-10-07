@@ -42,11 +42,12 @@ Lo primero que debemos hacer es definir el esquema (_schema_) que nos permitirá
 
 Los campos pueden ser de **tipos escalares o no escalares**. Los campos escalares pueden ser de tipo _String_, _Int_, _Float_, _Boolean_ o _ID_ y representan un valor concreto de una propiedad de un objeto en nuestro sistema. Los campos no escalares son instancias de alguno de los tipos definidos en nuestro esquema y representan las relaciones entre los nodos de nuestro grafo.
 
-Nuestro esquema deberia incluir un tipo para representar un archivo de nuestro file system, donde los campos de ese tipo van a ser las distintas propiedades que nos interesa obtener del archivo. Por ejemplo:
+Nuestro esquema deberia incluir un tipo para representar un archivo de nuestro file system, donde los campos de ese tipo van a ser las distintas propiedades que nos interesa obtener del archivo. Para el tipo _File_:
 
 ```gql
 type File {
   name: String!
+  type: String!
 }
 ```
 
