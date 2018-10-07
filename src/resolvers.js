@@ -30,6 +30,11 @@ module.exports = {
     dirs: filesResolver(DIR_TYPE),
     ls: filesResolver(),
   },
+  Mutation: {
+    writeFile(obj, { name, content }) {
+      return writeFile(name, content);
+    },
+  },
   // Agrega debajo los resolvers para tipos custom como File
   Stat: {
     __resolveType(obj) {

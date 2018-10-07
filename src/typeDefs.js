@@ -13,6 +13,9 @@ type Query {
   dirs: [Dir!]!
   ls(dir: String): [Stat!]!
 }
+type Mutation {
+  writeFile(name: String!, content: String!): File!
+}
 # Agrega debajo definiciones de tipo como File
 interface Stat {
   name: String!
