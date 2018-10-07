@@ -21,7 +21,6 @@ describe('step 6', () => {
         ls(dir: "Mother") {
           ...stats
           ... on Dir {
-            parent
             ...stats
           }
         }

@@ -35,7 +35,6 @@ Object {
     "ls": Array [
       Object {
         "name": "Father",
-        "parent": "Mother",
         "type": "Dir",
       },
       Object {
@@ -44,7 +43,6 @@ Object {
       },
       Object {
         "name": "Mother",
-        "parent": "Mother",
         "type": "Dir",
       },
       Object {
