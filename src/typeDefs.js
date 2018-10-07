@@ -20,5 +20,7 @@ type File {
 type Dir {
   name: String!
   type: String!
+  files: [File!]!
+  dirs: [Dir!]!
 }
 `;

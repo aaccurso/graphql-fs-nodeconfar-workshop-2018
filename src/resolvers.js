@@ -9,8 +9,9 @@ const {
   FILE_TYPE, DIR_TYPE, readDir, writeFile,
 } = require('./filesystem');
 
-const filesResolver = typeFilter => async () => {
-  const files = await readDir();
+const filesResolver = typeFilter => async (obj) => {
+  const parent = obj ? obj.name : '';
+  const files = await readDir(parent);
 
   return files.filter(file => file.type === typeFilter);
 };
@@ -25,4 +26,8 @@ module.exports = {
     dirs: filesResolver(DIR_TYPE),
   },
   // Agrega debajo los resolvers para tipos custom como File
+  Dir: {
+    files: filesResolver(FILE_TYPE),
+    dirs: filesResolver(DIR_TYPE),
+  },
 };
