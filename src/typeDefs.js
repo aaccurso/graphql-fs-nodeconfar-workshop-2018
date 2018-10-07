@@ -11,13 +11,18 @@ type Query {
   # Agrega debajo definiciones de campos para Query
   files: [File!]!
   dirs: [Dir!]!
+  ls: [Stat!]!
 }
 # Agrega debajo definiciones de tipo como File
-type File {
+interface Stat {
   name: String!
   type: String!
 }
-type Dir {
+type File implements Stat {
+  name: String!
+  type: String!
+}
+type Dir implements Stat {
   name: String!
   type: String!
   files: [File!]!

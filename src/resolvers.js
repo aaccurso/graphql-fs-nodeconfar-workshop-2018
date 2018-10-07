@@ -13,6 +13,9 @@ const filesResolver = typeFilter => async (obj) => {
   const parent = obj ? obj.name : '';
   const files = await readDir(parent);
 
+  if (!typeFilter) {
+    return files;
+  }
   return files.filter(file => file.type === typeFilter);
 };
 
@@ -24,8 +27,14 @@ module.exports = {
     // Agrega debajo los resolvers para Query
     files: filesResolver(FILE_TYPE),
     dirs: filesResolver(DIR_TYPE),
+    ls: filesResolver(),
   },
   // Agrega debajo los resolvers para tipos custom como File
+  Stat: {
+    __resolveType(obj) {
+      return obj.type;
+    },
+  },
   Dir: {
     files: filesResolver(FILE_TYPE),
     dirs: filesResolver(DIR_TYPE),
