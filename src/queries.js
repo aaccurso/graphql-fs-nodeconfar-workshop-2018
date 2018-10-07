@@ -11,7 +11,7 @@ query hello {
 `;
 
 const files = `
-query files {
+query listFiles {
   files {
     name
     type
@@ -20,7 +20,7 @@ query files {
 `;
 
 const dirs = `
-query dirs {
+query listDirs {
   dirs {
     name
     type
@@ -29,7 +29,7 @@ query dirs {
 `;
 
 const filesAndDirs = `
-query filesAndDirs {
+query listFilesAndDirs {
   files {
     name
     type
@@ -42,7 +42,7 @@ query filesAndDirs {
 `;
 
 const filesAndDirsRecursive = `
-query filesAndDirsRecursive {
+query listFilesAndDirsRecursive {
   dirs {
     name
     type
@@ -92,7 +92,7 @@ query listDir {
 `;
 
 const listDirRecursive = `
-query listDir {
+query listDirRecursive {
   ls(dir: "Mother") {
     ...stats
     ... on Dir {

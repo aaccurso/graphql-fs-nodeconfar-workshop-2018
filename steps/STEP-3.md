@@ -5,7 +5,7 @@ El objetivo de este paso es poder listar los directorios y sus archivos de forma
 Es decir, dada la siguiente consulta:
 
 ```gql
-query listDirs {
+query listFilesAndDirsRecursive {
   dirs {
     name
     type

@@ -5,7 +5,7 @@ El objetivo de este paso es poder listar los directorios y sus archivos con un s
 Es decir, dada la siguiente consulta:
 
 ```gql
-query list {
+query listRecursive {
   ls {
     name
     type

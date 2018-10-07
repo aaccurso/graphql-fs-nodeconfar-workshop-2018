@@ -5,7 +5,7 @@ Queremos listar un directorio específico.
 Dada la siguiente consulta:
 
 ```gql
-query listDir {
+query listDirRecursive {
   ls(dir: "Mother") {
     ...stats
     ... on Dir {
