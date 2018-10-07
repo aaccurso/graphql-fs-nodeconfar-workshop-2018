@@ -15,7 +15,7 @@ const fsReadDir = async (args) => {
 const fsWriteFile = util.promisify(fs.writeFile);
 const fsStat = util.promisify(fs.stat);
 
-const ROOT_PATH = `${__dirname}/__tests__/The_Simpsons`;
+const ROOT_PATH = 'The_Simpsons';
 const FILE_TYPE = 'File';
 const DIR_TYPE = 'Dir';
 
