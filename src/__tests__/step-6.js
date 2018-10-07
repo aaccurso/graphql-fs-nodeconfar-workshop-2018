@@ -1,37 +1,13 @@
 const { graphql } = require('graphql');
 const schema = require('../schema');
+const { listDir, listDirRecursive } = require('../queries');
 
 describe('step 6', () => {
   it('should query list dir', async () => {
-    const source = `
-      query lsDir {
-        ls(dir: "Mother") {
-          name
-          type
-        }
-      }
-    `;
-
-    expect(await graphql({ schema, source })).toMatchSnapshot();
+    expect(await graphql({ schema, source: listDir })).toMatchSnapshot();
   });
 
   it('should query list dir recursively', async () => {
-    const source = `
-      query listDir {
-        ls(dir: "Mother") {
-          ...stats
-          ... on Dir {
-            ...stats
-          }
-        }
-      }
-      
-      fragment stats on Stat {
-        name
-        type
-      }
-    `;
-
-    expect(await graphql({ schema, source })).toMatchSnapshot();
+    expect(await graphql({ schema, source: listDirRecursive })).toMatchSnapshot();
   });
 });

@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`step 2 should query dirs 1`] = `
+Object {
+  "data": Object {
+    "dirs": Array [
+      Object {
+        "name": "Father",
+        "type": "Dir",
+      },
+      Object {
+        "name": "Mother",
+        "type": "Dir",
+      },
+    ],
+  },
+}
+`;
+
 exports[`step 2 should query files and dirs 1`] = `
 Object {
   "data": Object {

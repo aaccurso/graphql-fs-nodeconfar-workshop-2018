@@ -1,17 +1,9 @@
 const { graphql } = require('graphql');
 const schema = require('../schema');
+const { list } = require('../queries');
 
 describe('step 4', () => {
   it('should query list', async () => {
-    const source = `
-      query list {
-        ls {
-          name
-          type
-        }
-      }
-    `;
-
-    expect(await graphql({ schema, source })).toMatchSnapshot();
+    expect(await graphql({ schema, source: list })).toMatchSnapshot();
   });
 });
