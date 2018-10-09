@@ -10,13 +10,24 @@ En primer lugar debemos usar el lenguaje provisto por GraphQL para definir el [e
   <img width="500" height="500" src="img/graph.png">
 </p>
 
-Nuestro esquema entonces estaría compuesto en principio por tres tipos: uno para la Playlist, otro para el Track y finalmente otro para el Artist. Cada uno de estos tipos asimismo está compuesto por ciertos campos (fields) que pueden ser escalares o no escalares. Los campos escalares permiten representar propiedades de un tipo como el id o el nombre, mientras que los campos no escalares representan las relaciones con otros nodos dentro del grafo. Por ejemplo, una posible definición de un tipo sería la siguiente:
+Nuestro esquema entonces estaría compuesto en principio por tres tipos: uno para la Playlist, otro para el Track y finalmente otro para el Artist. Cada uno de estos tipos asimismo está compuesto por ciertos campos (fields) que pueden ser escalares o no escalares.
+
+Los campos escalares permiten representar propiedades de un tipo como el id o el nombre, mientras que los campos no escalares representan las relaciones con otros nodos dentro del grafo. Por ejemplo, una posible definición de un tipo sería la siguiente:
 
 ```graphql
 type Playlist {
   id: String
   name: String
-  track: [Tracks]
+  tracks: [Track]
+}
+type Track {
+  id: String
+  name: String
+  artist: Artist
+}
+type Artist {
+  id: String
+  name: String
 }
 ```
 
@@ -41,7 +52,7 @@ type Query {
 
 Teniendo nuestro esquema definido, podemos escribir distintas consultas para obtener los datos de nuestra aplicación.
 
-[Las consultas en GraphQL](https://graphql.org/learn/queries/) tienen un formato sencillo: comenzamos seleccionando uno o más campos del tipo query; por cada campo, si este campo devuelve un valor de tipo escalar entonces terminamos ahí, pero si devuelve un campo de tipo objeto entonces debemos elegir uno o más campos correspondientes  este tipo. Lo que podemos observar es que este proceso describe un árbol cuyas hojas son los campos con tipos escalares.
+[Las consultas en GraphQL](https://graphql.org/learn/queries/) tienen un formato sencillo: comenzamos seleccionando uno o más campos del tipo query; por cada campo, si este campo devuelve un valor de tipo escalar entonces terminamos ahí, pero si devuelve un campo de tipo objeto entonces debemos elegir uno o más campos correspondientes a este tipo. Lo que podemos observar es que este proceso describe un árbol cuyas hojas son los campos con tipos escalares.
 
 ```graphql
 query getPlaylist {
@@ -88,11 +99,11 @@ Entonces si tenemos un tipo Track definido como sigue:
 
 ```graphql
 type Query {
-  track(id: String): Track,
+  track(id: String): Track
 }
 type Track {
-  id: String,
-  name: String,
+  id: String
+  name: String
 }
 ```
 
@@ -118,22 +129,22 @@ Pero si además nuestro tipo Track tuviera un campo de tipo Artist (es decir, de
 
 ```graphql
 type Query {
-  track(id: String): T,
+  track(id: String): Track
 }
 type Track {
-  id: String,
-  name: String,
-  artist: Artist,
+  id: String
+  name: String
+  artist: Artist
 }
 type Artist {
-  id: String,
-  name: String,
+  id: String
+  name: String
 }
 ```
 
 ```javascript
-const tracksData = {...};
-const artistData = {...};
+const tracksData = {/*...*/};
+const artistData = {/*...*/};
 const resolvers = {
   Query: {
     track: (obj, param) => tracksData[param.id],

@@ -39,18 +39,18 @@ Antes de comenzar vamos a verificar que todo este funcionando correctamente en n
 
 > Es recomendable instalar la versión 8+ de Node.js ya que todas las herramientas utilizadas en el workshop fueron probadas con dicha versión.
 
-1) [No te olvides de poner el where en el delete from](https://www.youtube.com/watch?v=i_cVJgIz_Cs): `npm install`.
-2) Ejecuta `npm run test:step-0` para verificar que todo este bajo control.
-3) Ejecuta `npm run start:dev` para levantar el servicio GraphQL.
-4) Entra al [GraphQL Playground](http://localhost:4000) e intenta ejecutar la query `{ hello }`.
+1. [No te olvides de poner el where en el delete from](https://www.youtube.com/watch?v=i_cVJgIz_Cs): `npm install`.
+2. Ejecuta `npm run test:0` para verificar que todo este bajo control.
+3. Ejecuta `npm run start:dev` para levantar el servicio GraphQL.
+4. Entra al [GraphQL Playground](http://localhost:4000) e intenta ejecutar la query `{ hello }`.
 
 ## FileSystem API
 
 Para resolver el ejercicio hacemos uso de los siguientes métodos de la API de `fs`:
 
-* [readdir](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)(path)
-* [stat](https://nodejs.org/api/fs.html#fs_fs_stat_path_options_callback)(path)
-* [writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)(filename, data)
+- [readdir](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)(path)
+- [stat](https://nodejs.org/api/fs.html#fs_fs_stat_path_options_callback)(path)
+- [writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)(filename, data)
 
 Sin embargo, para agilizar el workshop implementamos el módulo [src/filesystem.js](../src/filesystem.js) que expone los helpers `readDir` y `writeFile` los cuales utilizan los métodos de la API de `fs` de forma tal que nos permitan realizar las operaciones necesarias para resolver el ejercicio sin necesidad de invertir tiempo analizando la documentación de Node.js.
 
