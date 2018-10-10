@@ -9,7 +9,7 @@ const util = require('util');
 const fsReadDir = async (args) => {
   const files = await util.promisify(fs.readdir)(args);
 
-  // Filter out files that are hidden by the OS such as .DS_Store
+  // Descartar archivos ocultos por el OS como .DS_Store
   return files.filter(name => !/^\./.test(name));
 };
 const fsWriteFile = util.promisify(fs.writeFile);
@@ -29,14 +29,11 @@ const readDir = async (path = '') => {
 
   return Promise.all(files.map(async (name) => {
     const stat = await fsStat(`${finalPath}/${name}`);
-
-    if (stat.isFile()) {
-      return { name, type: FILE_TYPE };
-    }
+    const type = stat.isFile() ? FILE_TYPE : DIR_TYPE;
 
     return {
       name,
-      type: DIR_TYPE,
+      type,
     };
   }));
 };
