@@ -93,6 +93,8 @@ Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat
 }
 ```
 
+> Para más información sobre [`__resolveType`](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html) puedes leer la documentación de Apollo.
+
 ## Implementar _ls_
 
 Ahora es tu turno! Solo queda agregar la definición de `ls` al tipo Query e implementar su resolver para que devuelva archivos y directorios.

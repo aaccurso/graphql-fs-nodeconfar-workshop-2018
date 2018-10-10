@@ -54,7 +54,7 @@ Para resolver el ejercicio hacemos uso de los siguientes métodos de la API de `
 
 Sin embargo, para agilizar el workshop implementamos el módulo [src/filesystem.js](../src/filesystem.js) que expone los helpers `readDir` y `writeFile` los cuales utilizan los métodos de la API de `fs` de forma tal que nos permitan realizar las operaciones necesarias para resolver el ejercicio sin necesidad de invertir tiempo analizando la documentación de Node.js.
 
-Dichos helpers devuelven promises, lo que nos permitirá aprovechar la sintáxis _async/await_ soportada en la versión de Node.js que vamos a utilizar. Los resolvers de GraphQL soportan el uso de promises por lo que nos va a ser de ayuda durante el ejercicio.
+Dichos helpers devuelven promises, lo que nos permitirá aprovechar la sintaxis _async/await_ soportada en la versión de Node.js que vamos a utilizar. Los resolvers de GraphQL soportan el uso de promises por lo que nos va a ser de ayuda durante el ejercicio.
 
 ## Tests
 

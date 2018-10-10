@@ -68,6 +68,7 @@ type Query {
 ```
 
 > __[]__ es un modificador de tipo que indica que este campo es una lista.
+> __[]!__ indica que la lista no puede ser null, al menos se tiene que devolver una lista vacía.
 
 ## __Resolvers__
 

@@ -98,6 +98,12 @@ Para poder seleccionar campos de un tipo concreto que implementa `Stat`, como el
 
 En nuestra consulta el fragmento está definido como `... on Dir`, por lo que el field `ls` dentro del fragmento sólo se ejecutará cuando el `Stat` sea de tipo `Dir`.
 
+## Modificar Dir
+
+Para poder soportar esta nueva query es necesario agregar el campo `ls` en el tipo _Dir_ e implementar un resolver en _Dir_ para dicho campo.
+
+Te animas a resolverlo?
+
 ---
 
 Antes de continuar verifica que pasen los tests: `npm run test:5`
