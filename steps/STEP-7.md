@@ -15,8 +15,6 @@ mutation writeFile {
 ```
 Nos interesa obtener este resultado:
 
-Resultado:
-
 ```json
 {
   "data": {
@@ -31,11 +29,11 @@ Y además de eso, debería existir un archivo `ROOT_PATH/test.txt` cuyo contenid
 
 ## El tipo __Mutation__
 
-En el [paso 1](STEP-1.md) del workshop vimos que el tipo _Query_ era un tipo especial que nos provee de un punto de partida para nuestras consultas. De forma análoga al tipo _Query_, existe otro tipo llamado _Mutation_.
+En el [paso 1](STEP-1.md) del workshop vimos que el tipo _Query_ era un tipo especial que nos provee un punto de partida para nuestras consultas. De forma análoga al tipo _Query_, existe otro tipo llamado [_Mutation_](https://www.apollographql.com/docs/apollo-server/v2/schemas/types.html#Mutation-type).
 
-El tipo _Mutation_ es un tipo especial dentro de nuestro esquema; los campos que componen al tipo _Mutation_ representan todas las operaciones de escritura que podemos realizar con nuestro esquema GraphQL. Asimismo, los campos del tipo _Mutation_ suelen devolver las entidas que acaban de ser creadas o modificadas.
+Los campos que componen al tipo _Mutation_ representan todas las operaciones de escritura que podemos realizar con nuestro esquema GraphQL. Asimismo, estos campos suelen devolver las entidades que acaban de ser creadas o modificadas.
 
-La definición del tipo _Mutation_ es análoga a la definición del tipo _Query_, por ej,:
+La definición del tipo _Mutation_ es análoga a la definición del tipo _Query_, por ejemplo:
 
 ```gql
 type Mutation {
@@ -51,7 +49,7 @@ Los resolvers del tipo _Mutation_ son iguales a cualquier otro resolver, con la 
 {
   Mutation: {
     writeFile: (obj, args) => {
-      // TODO El resolver debe obtener los parametros de args,
+      // Obtener los parametros name y content de args,
       // crear un archivo con el nombre y contenido dado y devolver un objeto
       // que sea acorde al tipo File
     }
@@ -59,7 +57,7 @@ Los resolvers del tipo _Mutation_ son iguales a cualquier otro resolver, con la 
 }
 ```
 
-> __Nota__ Como regla general toda operación de escritura debe implementarse como una _mutation_ y toda operación de lectura como una consulta convencional.
+> __Nota__: Como regla general, toda operación de escritura debe implementarse como una _mutation_ y toda operación de lectura como una consulta convencional.
 
 ---
 
