@@ -103,12 +103,12 @@ Además, vamos a necesitar crear los resolvers para estos nuevos campos, ya que 
   Dir: {
     files: obj => {
       // TODO: leer los archivos del directorio actual
-      // la info del directorio actual se encuentra en el parametro obj
+      // La info del directorio actual se encuentra en el parametro obj
       return [];
     },
     dirs: obj => {
       // TODO: leer los directorios del directorio actual
-      // la info del directorio actual se encuentra en el parametro obj
+      // La info del directorio actual se encuentra en el parametro obj
       return [];
     }
   },
@@ -133,6 +133,7 @@ query listDirs {
   }
 }
 ```
+
 En primer lugar va a computar los campos triviales del campo `dirs` que está más afuera, el cual dará como resultado un objeto similar a este:
 
 ```javascript
@@ -141,9 +142,9 @@ En primer lugar va a computar los campos triviales del campo `dirs` que está m�
 }
 ```
 
-Luego intentará resolver los campos no triviales, es decir aquellos que se computan usando resolvers, invocando los distintos resolvers y pasándoles como primer parámetro este objeto. Es así como el resolver del campo `Dir.dirs` recibirá como primer parámetro un objeto con el nombre de la carpeta desde donde se está haciendo la consulta. Este proceso se repetirá tantas veces como sea necesario.
+Luego intentará resolver los campos no triviales, es decir aquellos que se computan usando resolvers, invocando los distintos resolvers y pasándoles como primer parámetro este objeto. Es así como el resolver del campo `dirs` dentro de _Dir_ recibirá como primer parámetro un objeto que posee el nombre de la carpeta desde donde se está haciendo la consulta. Este proceso se repetirá tantas veces como sea necesario.
 
-El argumento _obj_ es de particular importancia porque es el que __permite que nuestras consultas puedan tener anidamiento__.
+El argumento [_obj_](https://www.apollographql.com/docs/graphql-tools/resolvers.html#Resolver-obj-argument) es de particular importancia porque es el que __permite que nuestras consultas puedan tener anidamiento__.
 
 ---
 

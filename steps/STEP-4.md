@@ -73,7 +73,7 @@ type File implements Stat {
 
 Solo falta indicarle a GraphQL cómo queremos que distinga entre los tipos `File` y `Dir`.
 
-Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat`, el cual debe devolver el tipo como string.
+Para ello vamos a implementar el resolver [`__resolveType`](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html) para la interfaz `Stat`, el cual debe devolver el tipo como string.
 
 ```javascript
 {
@@ -92,8 +92,6 @@ Para ello vamos a implementar el resolver `__resolveType` para la interfaz `Stat
   },
 }
 ```
-
-> Para más información sobre [`__resolveType`](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html) puedes leer la documentación de Apollo.
 
 ## Implementar _ls_
 

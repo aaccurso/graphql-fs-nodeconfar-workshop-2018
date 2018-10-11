@@ -52,7 +52,7 @@ type Query {
 
 Teniendo nuestro esquema definido, podemos escribir distintas consultas para obtener los datos de nuestra aplicación.
 
-[Las consultas en GraphQL](https://graphql.org/learn/queries/) tienen un formato sencillo: comenzamos seleccionando uno o más campos del tipo query; por cada campo, si este campo devuelve un valor de tipo escalar entonces terminamos ahí, pero si devuelve un campo de tipo objeto entonces debemos elegir uno o más campos correspondientes a este tipo. Lo que podemos observar es que este proceso describe un árbol cuyas hojas son los campos con tipos escalares.
+Las [consultas en GraphQL](https://graphql.org/learn/queries/) tienen un formato sencillo: comenzamos seleccionando uno o más campos del tipo query; por cada campo, si este campo devuelve un valor de tipo escalar entonces terminamos ahí, pero si devuelve un campo de tipo objeto entonces debemos elegir uno o más campos correspondientes a este tipo. Lo que podemos observar es que este proceso describe un árbol cuyas hojas son los campos con tipos escalares.
 
 ```graphql
 query getPlaylist {
@@ -69,6 +69,7 @@ query getPlaylist {
   }
 }
 ```
+
 Una vez que tenemos nuestra consulta entonces estamos en condiciones enviarla a nuestro intérprete el cual nos va a devolver un objeto JSON que respeta la estructura que describimos en nuestra consulta.
 
 ```json
@@ -107,7 +108,7 @@ type Track {
 }
 ```
 
- Podriamos definir los resolvers como se muestra a continuación:
+Podriamos definir los resolvers como se muestra a continuación:
 
 ```javascript
 const tracksData = {
