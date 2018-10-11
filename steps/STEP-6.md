@@ -54,13 +54,13 @@ Queremos obtener este resultado:
 }
 ```
 
-> __Nota__: Antes de continuar, seguramente habrás notado el uso de `fragment`. Los _fragments_ son unidades reutilizables que agrupan un conjunto de _fields_ para incluirlas en las queries que necesites.
+> __Nota__: Antes de continuar, seguramente habrás notado el uso de [`fragment`](https://graphql.org/learn/queries/#fragments). Los _fragments_ son unidades reutilizables que agrupan un conjunto de _fields_ para incluirlas en las queries que necesites.
 
 ## Argumentos de un campo
 
-Lo primero que pueden haber notado es que la consulta del ejemplo anterior tenía un valor entre paréntesis. Este valor es un argumento y permite parametrizar el valor devuelto por el resolver de un campo. Por ej., si un tipo en nuestro devolviera una longitud un argumento nos permitiría parametrizar la unidad en la que nos interesa obtener el resultado del campo (km o mph, por ejemplo).
+Lo primero que pueden haber notado es que la consulta del ejemplo anterior tiene un valor entre paréntesis. Este valor es un [argumento](https://graphql.org/learn/queries/#arguments) y permite parametrizar el resolver de un campo.
 
-Para poder utilizar un campo en nuestra consulta primero debemos agregar ese campo a la definición del tipo donde se encuentra. Por ej., en nuestro caso podría ser algo así:
+Para poder utilizar un argumento en nuestra consulta primero debemos agregarlo en la definición del tipo donde se encuentra. Por ejemplo, en nuestro caso podría ser algo así:
 
 ```gql
 type Query {
@@ -68,19 +68,19 @@ type Query {
 }
 ```
 
-> __Nota__: El parámetro __dir__ no tiene un signo __!__ al final, esto indica que el mismo es opcional.
+> __Nota__: El tipo del parámetro __dir__ no tiene un signo __!__ al final, esto indica que el mismo es opcional.
 
 ## Argumentos de un campo y resolvers
 
-Una vez que hemos definido el argumento en nuestro esquema podemos utilizarlo en nuetras consultas, pero todavía falta algo para el mismo modifique el resultado devuelto por el campo, esto es, usarlo en el resolver.
+Una vez que hemos definido el argumento en nuestro esquema podemos utilizarlo en nuetras consultas, pero todavía necesitamos hacer uso de dicho argumento en nuestro resolver para que modifique el resultado del mismo.
 
-Anteriormente en el paso 3 vimos que las funciones resolver reciben como primer parámetro un argumento llamado __obj__. Los resolvers asimismo reciben un segundo parámetro habitualmente llamado __args__ que como ya nos podemos imaginar es un objeto que tiene todos los valores que se pasaron como parámetro en el campo. Es decir que a la hora de implementar el resolver para el campo _ls_ podemos acceder a los argumentos del campo de la siguiente forma:
+Anteriormente en el paso 3 vimos que las funciones resolver reciben como primer parámetro un argumento llamado __obj__. Además reciben un segundo parámetro habitualmente llamado __args__ que es un objeto que tiene todos los valores que se pasaron como parámetro en el campo. Es decir que a la hora de implementar el resolver para el campo _ls_ podemos acceder a sus argumentos de la siguiente forma:
 
 ```javascript
 {
   Query {
     ls: (obj, args) => {
-      // TODO: utilizar args.dir para calcular el directorio inicial
+      // Utilizar args.dir para calcular el directorio inicial
     }
   }
 }
