@@ -48,7 +48,9 @@ Queremos obtener esta respuesta:
 
 Para poder tratar archivos y directorios de forma polimórfica es necesario contar con una entidad que defina sus campos en común.
 
-En GraphQL contamos con el tipo abstracto [Interface](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html#Interface-type), que nos va a permitir describir los campos que comparten `File` y `Dir`. En nuestro caso:
+En GraphQL contamos con el tipo abstracto [Interface](https://www.apollographql.com/docs/apollo-server/features/unions-interfaces.html#Interface-type), que nos va a permitir describir los campos que comparten `File` y `Dir`.
+
+En nuestro caso podemos llamar [_Stat_](https://en.wikipedia.org/wiki/Stat_(system_call)) a esta abstracción de archivos y directorios ya que es el nombre que utilizan los sistemas Unix para referirse a los atributos de un inodo:
 
 ```gql
 interface Stat {
@@ -79,15 +81,7 @@ Para ello vamos a implementar el resolver [`__resolveType`](https://www.apollogr
 {
   Stat: {
     __resolveType(obj) {
-      if (isFile(obj)) {
-        return 'File';
-      }
-
-      if (isDir(obj)) {
-        return 'Dir';
-      }
-
-      return null;
+      // TODO: Retornar 'File' o 'Dir' de acuerdo al tipo del inodo
     },
   },
 }

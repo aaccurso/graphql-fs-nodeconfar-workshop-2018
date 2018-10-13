@@ -8,7 +8,7 @@
 
 Vamos a implementar un esquema de GraphQL que nos permita **listar archivos y directorios dentro de un filesystem**.
 
-Para ello nuestro punto de entrada o `ROOT_PATH` va a ser un directorio que contiene a los personajes de _Los Simpsons_ organizados geneológicamente.
+Para ello nuestro punto de entrada o `ROOT_PATH` va a ser un directorio que contiene a los personajes de _Los Simpsons_ organizados genealógicamente.
 
 Los archivos van a representar a los personajes y los directorios van a representar el parentezco entre dichos personajes.
 

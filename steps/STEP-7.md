@@ -7,12 +7,22 @@ El último paso tiene como objetivo agregar la funcionalidad necesaria para pode
 Es decir, dada la siguiente consulta:
 
 ```gql
-mutation writeFile {
-  writeFile(name: "test.txt", content: "test") {
+mutation writeFile($name: String!, $content: String!) {
+  writeFile(name: $name, content: $content) {
     name
   }
 }
 ```
+
+Con estos _query parameters_: 
+
+```json
+{
+  "name": "test.txt",
+  "content" "test"
+}
+```
+
 Nos interesa obtener este resultado:
 
 ```json

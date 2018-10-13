@@ -45,6 +45,9 @@ Los campos pueden ser de **tipos escalares o no escalares**. Los campos escalare
 Nuestro esquema deberia incluir un tipo para representar un archivo de nuestro file system, donde los campos de ese tipo van a ser las distintas propiedades que nos interesa obtener del archivo. Para el tipo _File_:
 
 ```gql
+# src/typeDefs.js
+
+# Agrega debajo definiciones de tipo como File
 type File {
   name: String!
   type: String!
@@ -77,16 +80,20 @@ Teniendo nuestro esquema definido, aun falta una última pieza para que el inter
 Los [resolvers](https://www.apollographql.com/docs/graphql-tools/resolvers.html#Resolver-function-signature) son un **conjunto de funciones** que permiten calcular los valores de los campos para aquellos casos en los que los mismos no se pueden obtener de forma trivial. Por ejemplo, para el esquema que hemos definido nos hace falta un único resolver:
 
 ```js
-const resolvers = {
+// src/resolvers.js
+
+module.exports = {
   Query: {
+    hello: () => {/* ... */},
+    // Agrega debajo los resolvers para Query
     files: async () => {
-      // Listar archivos usando `readDir`
+      // TODO: Retornar la lista de archivos usando `readDir`
     }
   }
 };
 ```
 
-Para facilitar la lectura de directorios implementamos el helper `readDir` ubicado en [src/filesystem.js](../src/filesystem.js) que lee `ROOT_PATH` y devuelve un listado de objetos con la información que necesitamos de los archivos.
+Para facilitar la lectura de directorios implementamos el helper `readDir` ubicado en [src/filesystem.js](../src/filesystem.js) que lee `ROOT_PATH` (que es nuestro directorio con Los Simpsons) y devuelve un listado de objetos con la información que necesitamos de los archivos.
 
 > Cabe destacar que en este caso el único resolver necesario es el del tipo _Query_, mientras que los resolvers del tipo _File_ no son necesarios ya que alcanza con devolver un objeto cuyas propiedades tengan los mismos nombres y tipos escalares que los campos del tipo _File_.
 

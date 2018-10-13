@@ -93,21 +93,17 @@ Además, vamos a necesitar crear los resolvers para estos nuevos campos, ya que 
 ```javascript
 {
   Query: {
-    files: () => {
-      // Resolver del campo files implementado en el STEP 1
-    }
-    dirs: () => {
-      // Resolver del campo dirs implementado en el STEP 2
-    }
+    files: () => {/* Resolver del campo files implementado en el STEP 1 */},
+    dirs: () => {/* Resolver del campo dirs implementado en el STEP 2 */}
   }
   Dir: {
     files: obj => {
-      // TODO: leer los archivos del directorio actual
+      // TODO: Retornar el listado de archivos del directorio actual
       // La info del directorio actual se encuentra en el parametro obj
       return [];
     },
     dirs: obj => {
-      // TODO: leer los directorios del directorio actual
+      // TODO: Retornar el listado de directorios del directorio actual
       // La info del directorio actual se encuentra en el parametro obj
       return [];
     }
