@@ -11,11 +11,12 @@ const {
 
 const endpoint = 'http://localhost:4000';
 const responses = [''];
-const createTab = (name, query) => ({
+const createTab = (name, query, variables = '') => ({
   name,
-  query,
+  query: query.trim(),
   endpoint,
   responses,
+  variables: JSON.stringify(variables, null, 2),
 });
 
 module.exports = {
@@ -27,6 +28,9 @@ module.exports = {
     createTab('Step 4', list),
     createTab('Step 5', listRecursive),
     createTab('Step 6', listDirRecursive),
-    createTab('Step 7', writeFile),
+    createTab('Step 7', writeFile, {
+      name: 'test.txt',
+      content: 'test',
+    }),
   ],
 };
