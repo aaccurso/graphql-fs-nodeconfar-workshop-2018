@@ -14,7 +14,7 @@ mutation writeFile($name: String!, $content: String!) {
 }
 ```
 
-Con estos _query parameters_: 
+Con estas [_query variables_](../img/query_variables.png): 
 
 ```json
 {
