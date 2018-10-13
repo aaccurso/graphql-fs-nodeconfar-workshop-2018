@@ -22,6 +22,7 @@ const DIR_TYPE = 'Dir';
 /**
  * Lista archivos y directorios bajo un cierto path
  * @param {String} path - Directorio a ser leído
+ * @returns {Array} stats - Listado de archivos y directorios
  */
 const readDir = async (path = '') => {
   const finalPath = `${ROOT_PATH}/${path}`;
@@ -42,6 +43,7 @@ const readDir = async (path = '') => {
  * Crea un archivo y lo escribe con el contenido provisto
  * @param {String} name - Nombre del archivo
  * @param {String} content - Contenido del archivo
+ * @returns {Object} file - Representación del archivo creado
  */
 const writeFile = async (name, content) => {
   await fsWriteFile(`${ROOT_PATH}/${name}`, content);
