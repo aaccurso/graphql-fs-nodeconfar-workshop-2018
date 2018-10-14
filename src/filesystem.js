@@ -5,6 +5,7 @@
 
 const fs = require('fs');
 const util = require('util');
+const getRootPath = require('./getRootPath');
 
 const fsReadDir = async (args) => {
   const files = await util.promisify(fs.readdir)(args);
@@ -15,7 +16,6 @@ const fsReadDir = async (args) => {
 const fsWriteFile = util.promisify(fs.writeFile);
 const fsStat = util.promisify(fs.stat);
 
-const ROOT_PATH = 'The_Simpsons';
 const FILE_TYPE = 'File';
 const DIR_TYPE = 'Dir';
 
@@ -25,7 +25,7 @@ const DIR_TYPE = 'Dir';
  * @returns {Array} stats - Listado de archivos y directorios
  */
 const readDir = async (path = '') => {
-  const finalPath = `${ROOT_PATH}/${path}`;
+  const finalPath = `${getRootPath()}/${path}`;
   const files = await fsReadDir(finalPath);
 
   return Promise.all(files.map(async (name) => {
@@ -46,7 +46,7 @@ const readDir = async (path = '') => {
  * @returns {Object} file - Representación del archivo creado
  */
 const writeFile = async (name, content) => {
-  await fsWriteFile(`${ROOT_PATH}/${name}`, content);
+  await fsWriteFile(`${getRootPath()}/${name}`, content);
 
   return {
     name,
@@ -55,7 +55,6 @@ const writeFile = async (name, content) => {
 };
 
 module.exports = {
-  ROOT_PATH,
   DIR_TYPE,
   FILE_TYPE,
   readDir,
