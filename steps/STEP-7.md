@@ -35,7 +35,7 @@ Nos interesa obtener este resultado:
 }
 ```
 
-Y además de eso, debería existir un archivo `ROOT_PATH/test.txt` cuyo contenido sea "text".
+Y además de eso, debería existir un archivo `ROOT_PATH/test.txt` cuyo contenido sea "test".
 
 ## El tipo __Mutation__
 
