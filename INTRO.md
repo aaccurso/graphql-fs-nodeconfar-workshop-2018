@@ -96,7 +96,7 @@ Hasta ahora vimos cómo definir un esquema usando GraphQL y cómo construir dife
 
 Este esquema nos permite crear una instancia de un intérprete GraphQL, lo único que requiere a tal fin es contar con la definición del esquema completo y con un conjunto de funciones (llamadas [resolvers](https://graphql.org/learn/execution/#root-fields-resolvers)) que permiten calcular los campos relevantes de los tipos de nuestro esquema.
 
-Entonces si tenemos un tipo Track definido como sigue:
+Entonces si tenemos un esquema definido como sigue:
 
 ```graphql
 type Query {
