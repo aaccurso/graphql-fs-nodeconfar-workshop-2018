@@ -12,7 +12,7 @@ GraphQL ha revolucionado la forma en que desarrollamos y consumimos nuestras API
 
 ## Agenda
 
-- [Intro](/INTRO.md): Conceptos fundamentales de GraphQL.
+- [Intro](INTRO.md): Conceptos fundamentales de GraphQL.
 - [Step 0](/steps/STEP-0.md): Setup del proyecto y enunciado del ejercicio que vamos a resolver en el workshop.
 - [Step 1](/steps/STEP-1.md): Listar los archivos.
 - [Step 2](/steps/STEP-2.md): Listar los directorios.
@@ -26,3 +26,9 @@ GraphQL ha revolucionado la forma en que desarrollamos y consumimos nuestras API
 
 - Alan Accurso · [aaccurso](https://github.com/aaccurso)
 - Sebastian Urbina · [surbina](https://github.com/surbina)
+
+[Otros créditos.](CREDITS.md)
+
+---
+
+Made with <span style="color: #e25555;">&#9829;</span> in Argentina
