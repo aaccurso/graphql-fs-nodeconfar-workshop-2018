@@ -9,7 +9,6 @@ query listDirRecursive {
   ls(dir: "Mother") {
     ...stats
     ... on Dir {
-      parent
       ...stats
     }
   }
@@ -29,8 +28,7 @@ Queremos obtener este resultado:
     "ls": [
       {
         "name": "Father",
-        "type": "Dir",
-        "parent": "Mother"
+        "type": "Dir"
       },
       {
         "name": "Marge_Simpson.png",
@@ -38,8 +36,7 @@ Queremos obtener este resultado:
       },
       {
         "name": "Mother",
-        "type": "Dir",
-        "parent": "Mother"
+        "type": "Dir"
       },
       {
         "name": "Patty_Bouvier.png",
