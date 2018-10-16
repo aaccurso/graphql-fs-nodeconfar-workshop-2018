@@ -4,19 +4,19 @@ This workshop was sponsored by [Medallia](http://medallia.com).
 
 ## Authors
 
-- [@aaccurso](http://github.com/aaccurso)
-- [@surbina](http://github.com/surbina)
+- Alan Accurso · [@aaccurso](http://github.com/aaccurso)
+- Sebastian Urbina · [@surbina](http://github.com/surbina)
 
 ## Collaborators
 
-- [@tomasboccardo](http://github.com/tomasboccardo)
-- [@ssaucedo](http://github.com/ssaucedo)
+- Tomas Boccardo · [@tomasboccardo](http://github.com/tomasboccardo)
+- Santiago Saucedo · [@ssaucedo](http://github.com/ssaucedo)
 
 ## Reviewers
 
-- [@alancampora](http://github.com/alancampora)
-- [@gztomas](http://github.com/gztomas)
-- [@hpieroni](http://github.com/hpieroni)
-- [@norchow](http://github.com/norchow)
-- [@maeriens](http://github.com/maeriens)
-- [@tiagox](http://github.com/tiagox)
+- Alan Campora · [@alancampora](http://github.com/alancampora)
+- Tomas Gonzalez · [@gztomas](http://github.com/gztomas)
+- Hernan Pieroni · [@hpieroni](http://github.com/hpieroni)
+- Nicolas Orchow · [@norchow](http://github.com/norchow)
+- Mariano Perdomo · [@maeriens](http://github.com/maeriens)
+- Santiago Rojo · [@tiagox](http://github.com/tiagox)
