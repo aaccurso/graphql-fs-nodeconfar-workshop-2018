@@ -156,8 +156,13 @@ const resolvers = {
 };
 ```
 
+## Ejercicio Workshop
+
+Ahora que ya repasamos los conceptos fundamentales de GraphQL podemos comenzar a resolver el [ejercicio](steps/STEP-0.md) propuesto por el workshop.
+
 ## Material adicional
 
+- [Diapositivas](intro.pdf)
 - Caso de uso: GraphQL en Medallia https://www.youtube.com/watch?v=OkJLTOOZ9vM
 - GraphQL home page: https://graphql.org/
 - GraphQL tools: https://www.apollographql.com/docs/graphql-tools/
